@@ -1,0 +1,499 @@
+/* ========================================================================= */
+/* Base Styles */
+/* ========================================================================= */
+* {
+    margin: 0; /* Removes default margin for all elements */
+    padding: 0; /* Removes default padding for all elements */
+    box-sizing: border-box; /* Ensures padding and border are included in width/height calculations */
+}
+
+html, body {
+    height: auto; /* Allows the body's height to adjust based on content */
+    min-height: 100%; /* Ensures the body takes up at least 100% of the viewport height */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar for a cleaner layout */
+}
+
+body {
+    font-family: "Montserrat", sans-serif; /* Applies Montserrat font family to the entire page */
+    background-color: #12131d; /* Dark background color for the body */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* ========================================================================= */
+/* Navigation */
+/* ========================================================================= */
+nav {
+    background-color: #161723; /* Dark background for the navigation bar */
+    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.055); /* Subtle shadow for a floating effect */
+    position: fixed; /* Fixes the navbar at the top of the viewport */
+    top: 0; /* Aligns the navbar to the top */
+    left: 0; /* Aligns the navbar to the left */
+    width: 100%; /* Ensures the navbar spans the full width of the viewport */
+    z-index: 1000; /* Keeps the navbar on top of other elements */
+    padding: 23px 0; /* Adds padding inside the navbar */
+}
+
+nav ul {
+    list-style: none; /* Removes default list styling */
+    display: flex; /* Aligns the list items horizontally */
+    justify-content: center; /* Centers the list items horizontally */
+    align-items: center; /* Centers the list items vertically */
+}
+
+nav ul li {
+    margin: 0 1.5rem; /* Adds spacing between each list item */
+}
+
+nav ul li a {
+    text-decoration: none; /* Removes the default underline from links */
+    color: #fff; /* Sets the text color to white */
+    font-family: 'Helvetica', sans-serif; /* Applies the Helvetica font family */
+    font-weight: 500; /* Sets the font weight to medium */
+    font-size: 1rem; /* Sets the font size to 1rem */
+    padding: 0.5rem 1rem; /* Adds padding inside the link */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform properties */
+}
+
+nav ul li a:hover {
+    color: #F72585; /* Changes the text color on hover */
+    transform: translateY(-2px); /* Moves the link slightly up on hover */
+}
+
+nav ul li a:active {
+    color: #D100D1; /* Changes the text color when the link is clicked */
+}
+
+/* Navigation Responsive */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stacks the navigation items vertically */
+        padding: 1rem 0; /* Adds padding to the vertical layout */
+    }
+
+    nav ul li {
+        margin: 0.5rem 0; /* Adds vertical margin between list items */
+    }
+}
+
+/* ========================================================================= */
+/* Fixed Elements */
+/* ========================================================================= */
+.pokemon-image1 {
+    width: 60px; /* Sets the width of the Pokémon image */
+    position: fixed; /* Fixes the position of the image */
+    top: 4px; /* Positions the image 4px from the top */
+    left: 20px; /* Positions the image 20px from the left */
+    z-index: 1001; /* Ensures the image appears above other elements */
+    margin-bottom: 100px; /* Adds bottom margin to create spacing */
+}
+
+.title {
+    font-size: 15px; /* Sets the font size for the title */
+    color: #fff; /* Sets the title text color to white */
+    position: fixed; /* Fixes the title at a specific position */
+    top: 15px; /* Positions the title 15px from the top */
+    left: 80px; /* Positions the title 80px from the left */
+    z-index: 1001; /* Ensures the title appears above other elements */
+    margin-bottom: 100px; /* Adds bottom margin for spacing */
+}
+
+.rect1, .rect2, .rect3 {
+    background-color: #fff; /* Sets a white background for the rectangles */
+    border-radius: 90px; /* Gives the rectangles rounded corners */
+    position: fixed; /* Fixes the rectangles at specific positions */
+    z-index: 1001; /* Ensures the rectangles appear above other elements */
+    margin-bottom: 100px; /* Adds bottom margin for spacing */
+}
+
+.group:hover .rect1,
+.group:hover .rect2,
+.group:hover .rect3 {
+    background-color: #F72585; /* Changes the background color of the rectangles on hover */
+}
+
+.rect1 {
+    width: 30px; /* Sets the width of the first rectangle */
+    height: 5px; /* Sets the height of the first rectangle */
+    top: 23px; /* Positions the first rectangle 23px from the top */
+    left: 1370px; /* Positions the first rectangle 1370px from the left */
+}
+
+.rect2 {
+    width: 25px; /* Sets the width of the second rectangle */
+    height: 5px; /* Sets the height of the second rectangle */
+    top: 33px; /* Positions the second rectangle 33px from the top */
+    left: 1375px; /* Positions the second rectangle 1375px from the left */
+}
+
+.rect3 {
+    width: 15px; /* Sets the width of the third rectangle */
+    height: 5px; /* Sets the height of the third rectangle */
+    top: 43px; /* Positions the third rectangle 43px from the top */
+    left: 1385px; /* Positions the third rectangle 1385px from the left */
+}
+
+.top h1{
+    font-size: 200px; /* Sets the font size for the main heading */
+    text-align: center; /* Centers the heading text */
+    position: relative; /* Positions the heading relative to its normal position */
+    margin-top: 100px; /* Adds top margin for spacing */
+    color: #fff; /* Sets the heading text color to white */
+    font-family: "Fjalla One", sans-serif; /* Applies the Fjalla One font family */
+    margin-bottom: -100px; /* Adjusts the bottom margin to overlap other content */
+}
+
+.top p{
+    font-size: 20px; /* Sets the font size for the paragraph */
+    text-align: center; /* Centers the paragraph text */
+    position: relative; /* Positions the paragraph relative to its normal position */
+    margin-top: 100px; /* Adds top margin for spacing */
+    color: #fff; /* Sets the paragraph text color to white */
+}
+
+/* ========================================================================= */
+/* 3D Review Slider */
+/* ========================================================================= */
+.banner {
+    width: 100%; /* Ensures the banner takes up the full width of the screen */
+    height: 100vh; /* Makes the banner take up the full viewport height */
+    text-align: center; /* Centers the content inside the banner */
+    overflow: hidden; /* Hides any overflowing content */
+    position: relative; /* Allows for absolute positioning of nested elements */
+}
+
+.banner .slider {
+    --quantity: 10; /* Sets a custom property for the number of items in the slider */
+    position: absolute; /* Positions the slider absolutely within the banner */
+    width: 200px; /* Sets the width of the slider */
+    height: 250px; /* Sets the height of the slider */
+    top: 15%; /* Positions the slider 15% from the top of the banner */
+    left: calc(50% - 100px); /* Centers the slider horizontally */
+    transform-style: preserve-3d; /* Allows 3D transforms for the slider */
+    transform: perspective(1000px); /* Adds perspective to the 3D transform */
+    animation: autoRun 20s linear infinite; /* Adds an infinite rotating animation to the slider */
+}
+
+@keyframes autoRun {
+    from {
+        transform: perspective(1000px) rotateX(-10deg) rotateY(0deg); /* Starts the animation with a specific rotation */
+    }
+    to {
+        transform: perspective(1000px) rotateX(-10deg) rotateY(360deg); /* Ends the animation with a full 360-degree rotation */
+    }
+}
+
+.banner .slider:hover {
+    animation-play-state: paused; /* Pauses the animation when hovering over the slider */
+}
+
+.banner .slider .item {
+    position: absolute; /* Positions each item absolutely within the slider */
+    inset: 0 0 0 0; /* Ensures the item fills the entire space within the slider */
+    transform:
+        rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) /* Rotates the item based on its position */
+        translateZ(550px); /* Translates the item along the Z-axis to create depth */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over an item */
+    transition: transform 0.3s ease; /* Adds a smooth transform transition */
+    overflow: hidden; /* Hides any content that overflows the item */
+}
+
+.banner .slider .item img {
+    width: 100%; /* Ensures the image fills the entire space of the item */
+    height: 100%; /* Ensures the image fills the entire space of the item */
+    object-fit: cover; /* Ensures the image covers the area of the item without distortion */
+    transition: opacity 0.3s ease; /* Smooth transition for the image opacity */
+}
+
+/* Overlay styles for review text */
+.banner .slider .item .overlay {
+    position: absolute; /* Positions the overlay absolutely within the item */
+    inset: 0; /* Ensures the overlay covers the entire area of the item */
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white background for the overlay */
+    color: #000; /* Sets the text color to black */
+    display: flex; /* Uses flexbox for centering the content */
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    text-align: center; /* Centers the text inside the overlay */
+    opacity: 0; /* Initially hides the overlay */
+    transition: opacity 0.4s ease; /* Smooth transition for the overlay opacity */
+    padding: 1rem; /* Adds padding inside the overlay */
+}
+
+.banner .slider .item:hover .overlay {
+    opacity: 1; /* Makes the overlay visible when the item is hovered */
+}
+
+/* ========================================================================= */
+/* Overlay Content Styling (continued) */
+/* ========================================================================= */
+
+.banner .slider .item:hover img {
+    opacity: 0; /* Hides the image when the user hovers to reveal the review overlay */
+    width: 100%; /* Ensures the image takes up the full width of the container */
+    height: 100%; /* Ensures the image takes up the full height of the container */
+    object-fit: cover; /* Maintains image aspect ratio while filling container */
+    transition: opacity 0.3s ease; /* Smooth transition effect when fading out the image */
+}
+
+/* ========================================================================= */
+/* Review Card Layout */
+/* ========================================================================= */
+
+.review-content {
+    display: flex; /* Uses flexbox layout to arrange content vertically */
+    flex-direction: column; /* Stacks child elements from top to bottom */
+    align-items: center; /* Horizontally centers all child elements */
+    gap: 0.6rem; /* Adds vertical spacing between each child element */
+    font-family: "Montserrat", sans-serif; /* Applies a clean, modern typeface */
+}
+
+.review-content .stars {
+    font-size: 1.2rem; /* Sets a moderate size for the star rating */
+    color: #FFD700; /* Applies a golden yellow color to the stars */
+    font-weight: bold; /* Makes the star icons stand out with bold styling */
+}
+
+.review-content .text {
+    font-size: 0.95rem; /* Slightly smaller text size for the review paragraph */
+    color: #111; /* Applies a very dark gray for strong readability */
+    font-style: italic; /* Adds emphasis by rendering the review in italics */
+    line-height: 1.4; /* Improves readability by spacing lines moderately apart */
+}
+
+.review-content .name {
+    font-size: 0.9rem; /* Smaller text size for the reviewer's name */
+    color: #333; /* Uses a neutral dark gray for the name text */
+    font-weight: 600; /* Slightly bolder to distinguish it as a label */
+}
+
+/* ========================================================================= */
+/* Grid Container for Review Cards */
+/* ========================================================================= */
+
+.reviews-container {
+    display: grid; /* Uses CSS grid to arrange review cards */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Creates responsive columns that adapt to screen size */
+    gap: 30px; /* Adds space between each review card */
+    max-width: 1200px; /* Restricts the container's maximum width for layout consistency */
+    margin: 0 auto; /* Horizontally centers the container */
+    margin-bottom: -700px; /* Shifts the entire grid upward, possibly to overlap with other content */
+}
+
+/* ========================================================================= */
+/* Individual Review Card Styling */
+/* ========================================================================= */
+
+.review-card {
+    background: white; /* Gives each card a clean white background */
+    border-radius: 16px; /* Rounds the corners of the card for a soft look */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Adds subtle depth with a soft shadow */
+    padding: 20px; /* Adds internal spacing inside the card */
+    transition: transform 0.3s ease; /* Smooth animation for hover transformation */
+}
+
+.review-card:hover {
+    transform: translateY(-5px); /* Slight upward lift effect on hover to draw attention */
+}
+
+/* ========================================================================= */
+/* User Information Section Within Card */
+/* ========================================================================= */
+
+.user-info {
+    display: flex; /* Arranges image and text side by side using flexbox */
+    align-items: center; /* Vertically aligns the avatar and name */
+    margin-bottom: 15px; /* Adds spacing below the user info section */
+}
+
+.user-info img {
+    width: 50px; /* Fixed width for the avatar image */
+    height: 50px; /* Fixed height to maintain square shape */
+    border-radius: 50%; /* Makes the image circular */
+    margin-right: 15px; /* Creates space between avatar and user name */
+    object-fit: cover; /* Ensures the image fully fills the circle without distortion */
+}
+
+.user-name {
+    font-weight: 600; /* Makes the name text stand out with medium boldness */
+    font-size: 1rem; /* Sets a standard readable size for the name */
+}
+
+/* ========================================================================= */
+/* Star Ratings and Review Text */
+/* ========================================================================= */
+
+.stars {
+    color: #f8b400; /* Applies a warm golden tone to the star icons */
+    font-size: 1rem; /* Sets consistent size for the star symbols */
+    margin: 4px 0; /* Adds vertical spacing around the stars */
+}
+
+.review-text {
+    font-size: 0.95rem; /* Slightly smaller font size for the review paragraph */
+    line-height: 1.6; /* Provides readable line spacing for the text block */
+    color: #555; /* Uses a medium gray for comfortable reading contrast */
+}
+/* ========================================================================= */
+/* Rectangular Gradient Background Section */
+/* ========================================================================= */
+
+.rect33 {
+    width: 1440px; /* Sets the width of the rectangular section to 1440px */
+    height: 200px; /* Sets the height of the rectangular section to 200px */
+    background-image: linear-gradient(to right, #fff, #F72585, #7209B7); /* Applies a gradient background transitioning from white to pink to purple */
+    border-radius: 20px 20px 0 0; /* Rounds the top corners of the rectangle for a soft edge */
+    position: relative; /* Positions the element relative to its normal position */
+    z-index: 100; /* Ensures the element is above others with a higher stacking order */
+    top: 800px; /* Positions the section 800px down from its normal position */
+}
+
+/* ========================================================================= */
+/* Pokémon Image Hover Effects (Images 14-17) */
+/* ========================================================================= */
+
+.pokemon-image14 {
+    width: 50px; /* Sets the width of the Pokémon image to 50px */
+    height: 50px; /* Sets the height of the Pokémon image to 50px */
+    border-radius: 50%; /* Makes the image circular */
+    position: relative; /* Positions the image relative to its normal position */
+    z-index: 104; /* Ensures the image appears above other elements with lower stacking order */
+    top: 665px; /* Positions the image 665px down from its normal position */
+    left: 1070px; /* Positions the image 1070px from the left edge of the container */
+    transition: transform 0.3s ease; /* Smooth transition effect when the image transforms */
+}
+
+.pokemon-image14:hover {
+    transform: translateY(-10px); /* Slight upward movement on hover to create a "lift" effect */
+}
+
+.pokemon-image15 {
+    width: 50px; /* Sets the width of the Pokémon image to 50px */
+    height: 50px; /* Sets the height of the Pokémon image to 50px */
+    border-radius: 50%; /* Makes the image circular */
+    position: relative; /* Positions the image relative to its normal position */
+    z-index: 104; /* Ensures the image appears above other elements with lower stacking order */
+    top: 665px; /* Positions the image 665px down from its normal position */
+    left: 1080px; /* Positions the image 1080px from the left edge of the container */
+    transition: transform 0.3s ease; /* Smooth transition effect when the image transforms */
+}
+
+.pokemon-image15:hover {
+    transform: translateY(-10px); /* Slight upward movement on hover to create a "lift" effect */
+}
+
+.pokemon-image16 {
+    width: 50px; /* Sets the width of the Pokémon image to 50px */
+    height: 50px; /* Sets the height of the Pokémon image to 50px */
+    border-radius: 50%; /* Makes the image circular */
+    position: relative; /* Positions the image relative to its normal position */
+    z-index: 104; /* Ensures the image appears above other elements with lower stacking order */
+    top: 665px; /* Positions the image 665px down from its normal position */
+    left: 1090px; /* Positions the image 1090px from the left edge of the container */
+    transition: transform 0.3s ease; /* Smooth transition effect when the image transforms */
+}
+
+.pokemon-image16:hover {
+    transform: translateY(-10px); /* Slight upward movement on hover to create a "lift" effect */
+}
+
+.pokemon-image17 {
+    width: 50px; /* Sets the width of the Pokémon image to 50px */
+    height: 50px; /* Sets the height of the Pokémon image to 50px */
+    border-radius: 50%; /* Makes the image circular */
+    position: relative; /* Positions the image relative to its normal position */
+    z-index: 104; /* Ensures the image appears above other elements with lower stacking order */
+    top: 665px; /* Positions the image 665px down from its normal position */
+    left: 1100px; /* Positions the image 1100px from the left edge of the container */
+    transition: transform 0.3s ease; /* Smooth transition effect when the image transforms */
+}
+
+.pokemon-image17:hover {
+    transform: translateY(-10px); /* Slight upward movement on hover to create a "lift" effect */
+}
+
+/* ========================================================================= */
+/* Text Styling and Positioning (Text 14-19) */
+/* ========================================================================= */
+
+.text14 p {
+    font-size: 15px; /* Sets the font size to 15px for text inside the paragraph */
+    color: #fff; /* Makes the text color white */
+    position: relative; /* Positions the paragraph relative to its normal position */
+    z-index: 103; /* Ensures the text appears above other elements with lower stacking order */
+    top: 701.5px; /* Positions the paragraph 701.5px down from its normal position to align below the Pokémon images */
+    background-color: #ffffff29; /* Applies a semi-transparent white background to the text */
+    padding: 12.7px 543.5px 12.7px 543.5px; /* Adds padding inside the paragraph, left and right padding is large to center the text */
+}
+
+.text15 a {
+    font-size: 15px; /* Sets the font size to 15px for links */
+    color: #0000006b; /* Sets the text color to a semi-transparent black */
+    position: relative; /* Positions the link relative to its normal position */
+    z-index: 103; /* Ensures the link appears above other elements with lower stacking order */
+    top: 540px; /* Positions the link 540px down from its normal position to align below the Pokémon images */
+    left: 60px; /* Positions the link 60px from the left edge */
+    text-decoration: none; /* Removes the underline from the link */
+}
+
+.text15 a:hover {
+   color: #F72585; /* Changes the text color to pink on hover */
+}
+
+.text16 a {
+    font-size: 15px; /* Sets the font size to 15px for links */
+    color: #0000006b; /* Sets the text color to a semi-transparent black */
+    position: relative; /* Positions the link relative to its normal position */
+    z-index: 103; /* Ensures the link appears above other elements with lower stacking order */
+    top: 540px; /* Positions the link 540px down from its normal position to align below the Pokémon images */
+    left: 60px; /* Positions the link 60px from the left edge */
+    text-decoration: none; /* Removes the underline from the link */
+}
+
+.text16 a:hover {
+   color: #F72585; /* Changes the text color to pink on hover */
+}
+
+.text17 a {
+    font-size: 15px; /* Sets the font size to 15px for links */
+    color: #0000006b; /* Sets the text color to a semi-transparent black */
+    position: relative; /* Positions the link relative to its normal position */
+    z-index: 103; /* Ensures the link appears above other elements with lower stacking order */
+    top: 540px; /* Positions the link 540px down from its normal position to align below the Pokémon images */
+    left: 60px; /* Positions the link 60px from the left edge */
+    text-decoration: none; /* Removes the underline from the link */
+}
+
+.text17 a:hover {
+   color: #F72585; /* Changes the text color to pink on hover */
+}
+
+.text18 a {
+    font-size: 15px; /* Sets the font size to 15px for links */
+    color: #0000006b; /* Sets the text color to a semi-transparent black */
+    position: relative; /* Positions the link relative to its normal position */
+    z-index: 103; /* Ensures the link appears above other elements with lower stacking order */
+    top: 540px; /* Positions the link 540px down from its normal position to align below the Pokémon images */
+    left: 60px; /* Positions the link 60px from the left edge */
+    text-decoration: none; /* Removes the underline from the link */
+}
+
+.text18 a:hover {
+   color: #F72585; /* Changes the text color to pink on hover */
+}
+
+.text19 a {
+    font-size: 15px; /* Sets the font size to 15px for links */
+    color: #0000006b; /* Sets the text color to a semi-transparent black */
+    position: relative; /* Positions the link relative to its normal position */
+    z-index: 103; /* Ensures the link appears above other elements with lower stacking order */
+    top: 540px; /* Positions the link 540px down from its normal position to align below the Pokémon images */
+    left: 60px; /* Positions the link 60px from the left edge */
+    text-decoration: none; /* Removes the underline from the link */
+}
+
+.text19 a:hover {
+   color: #F72585; /* Changes the text color to pink on hover */
+}

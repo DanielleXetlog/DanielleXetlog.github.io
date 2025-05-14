@@ -1,0 +1,1177 @@
+/* ========================================================================= */
+/* Base Styles */
+/* ========================================================================= */
+* {
+  margin: 0; /* Removes default margins from all elements for consistent spacing */
+  padding: 0; /* Removes default padding from all elements for manual control */
+  box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
+}
+
+html, body {
+  min-height: 100vh; /* Ensures the page fills the entire viewport height */
+  height: 100%; /* Sets the height to 100% of the parent container */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar in WebKit-based browsers for a cleaner appearance */
+}
+
+body {
+  font-family: 'Montserrat', sans-serif; /* Sets the default font to Montserrat with sans-serif fallback */
+  background-color: #12131d; /* Applies a dark background color to the entire page */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  display: flex; /* Uses flexbox to arrange child elements */
+  flex-direction: column; /* Arranges flex items vertically in a column */
+}
+
+/* Ensure the main content takes up remaining space */
+main {
+  flex: 1 0 auto; /* Allows main content to grow and fill available space, preventing shrinking */
+}
+
+/* ========================================================================= */
+/* Navigation */
+/* ========================================================================= */
+nav {
+  background-color: #161723; /* Sets a slightly lighter dark background for the navigation bar */
+  box-shadow: 0 10px 10px rgba(255, 255, 255, 0.055); /* Adds a subtle shadow for depth */
+  position: fixed; /* Fixes the nav bar to the top of the viewport */
+  top: 0; /* Aligns the nav bar to the top edge */
+  left: 0; /* Aligns the nav bar to the left edge */
+  width: 100%; /* Makes the nav bar span the full width of the viewport */
+  z-index: 1000; /* Ensures the nav bar stays above most other elements */
+  padding: 23px 0; /* Adds vertical padding for spacing */
+}
+
+nav ul {
+  list-style: none; /* Removes default bullet points from the unordered list */
+  display: flex; /* Uses flexbox to arrange list items horizontally */
+  justify-content: center; /* Centers the list items horizontally */
+  align-items: center; /* Aligns list items vertically */
+}
+
+nav ul li {
+  margin: 0 1.5rem; /* Adds horizontal margin between list items for spacing */
+}
+
+nav ul li a {
+  text-decoration: none; /* Removes the default underline from links */
+  color: #fff; /* Sets link text color to white for contrast */
+  font-family: 'Helvetica', sans-serif; /* Uses Helvetica font for navigation links */
+  font-weight: 500; /* Sets a medium font weight for emphasis */
+  font-size: 1rem; /* Sets the font size to 1rem for readability */
+  padding: 0.5rem 1rem; /* Adds padding around links for a larger clickable area */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smoothly transitions color and transform on hover */
+}
+
+nav ul li a:hover {
+  color: #f72585; /* Changes link color to vibrant pink on hover */
+  transform: translateY(-2px); /* Slightly lifts the link upward for a hover effect */
+}
+
+nav ul li a:active {
+  color: #d100d1; /* Changes link color to a darker purple when clicked */
+}
+
+/* Navigation Responsive */
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* Stacks navigation items vertically on smaller screens */
+    padding: 1rem 0; /* Adds vertical padding for spacing */
+  }
+
+  nav ul li {
+    margin: 0.5rem 0; /* Applies vertical margin for spacing between list items */
+  }
+}
+
+.pokemon-image1 {
+  width: 60px; /* Sets the width of the image to 60 pixels */
+  position: fixed; /* Fixes the image position relative to the viewport */
+  top: 4px; /* Positions the image 4 pixels from the top */
+  left: 20px; /* Positions the image 20 pixels from the left */
+  z-index: 1001; /* Places the image above the navigation bar */
+}
+
+.title {
+  font-size: 15px; /* Sets the font size to 15 pixels for the title */
+  color: #fff; /* Sets the title text color to white */
+  position: fixed; /* Fixes the title position relative to the viewport */
+  top: 15px; /* Positions the title 15 pixels from the top */
+  left: 80px; /* Positions the title 80 pixels from the left */
+  z-index: 1001; /* Ensures the title is above the navigation bar */
+}
+
+.rect1, .rect2, .rect3 {
+  width: 100px; /* Sets the initial width of rectangles (overridden later) */
+  height: 100px; /* Sets the initial height of rectangles (overridden later) */
+  background-color: #fff; /* Sets the background color to white */
+  margin: 0;
+  margin: 0; /* Removes default margins to ensure content starts at the edge */
+  transition: background-color 0.3s ease; /* Smoothly transitions background color on hover */
+}
+
+/* Change all rectangles when hovering on the parent */
+.group:hover .rect1,
+.group:hover .rect2,
+.group:hover .rect3 {
+  background-color: #F72585; /* Changes rectangle background to vibrant pink when parent is hovered */
+}
+
+.rect1 {
+  width: 30px; /* Sets the width to 30 pixels */
+  height: 5px; /* Sets the height to 5 pixels */
+  background-color: #fff; /* Sets the background color to white */
+  border-radius: 90px; /* Rounds the edges to create a pill shape */
+  position: fixed; /* Fixes the position relative to the viewport */
+  top: 26px; /* Positions 26 pixels from the top */
+  left: 1370px; /* Positions 1370 pixels from the left */
+  z-index: 1001; /* Places the rectangle above the navigation bar */
+}
+
+.rect2 {
+  width: 25px; /* Sets the width to 25 pixels */
+  height: 5px; /* Sets the height to 5 pixels */
+  background-color: #fff; /* Sets the background color to white */
+  border-radius: 90px; /* Rounds the edges to create a pill shape */
+  position: fixed; /* Fixes the position relative to the viewport */
+  top: 36px; /* Positions 36 pixels from the top */
+  left: 1375px; /* Positions 1375 pixels from the left */
+  z-index: 1001; /* Places the rectangle above the navigation bar */
+}
+
+.rect3 {
+  width: 15px; /* Sets the width to 15 pixels */
+  height: 5px; /* Sets the height to 5 pixels */
+  background-color: #fff; /* Sets the background color to white */
+  border-radius: 90px; /* Rounds the edges to create a pill shape */
+  position: fixed; /* Fixes the position relative to the viewport */
+  top: 46px; /* Positions 46 pixels from the top */
+  left: 1385px; /* Positions 1385 pixels from the left */
+  z-index: 1001; /* Places the rectangle above the navigation bar */
+}
+
+/* Video Section */
+.video-container {
+  width: 99%; /* Sets the width to nearly full viewport width */
+  height: 800px; /* Sets a fixed height for the video container */
+  position: relative; /* Allows positioning of child elements relative to this container */
+  z-index: -100; /* Places the container behind other content */
+  left: 30px; /* Offsets the container 30 pixels from the left */
+}
+
+.video {
+  width: 100%; /* Makes the video span the full width of its container */
+  height: 100%; /* Makes the video span the full height of its container */
+  object-fit: cover; /* Ensures the video covers the container without distortion */
+  position: sticky; /* Keeps the video in place while scrolling */
+  top: 50px; /* Positions the video 50 pixels from the top when sticky */
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative; /* Allows positioning of child elements relative to this section */
+  z-index: 103; /* Places the section above the video container */
+  margin-top: -800px; /* Pulls the section up to overlap the video */
+}
+
+.rect4 {
+  width: 100%; /* Spans the full width of the parent */
+  height: 800px; /* Matches the height of the video container */
+  background: linear-gradient(
+    to right,
+    #000,
+    #000000,
+    #000000,
+    #000000c1,
+    transparent,
+    transparent
+  ); /* Creates a gradient overlay fading from black to transparent */
+  position: absolute; /* Positions the rectangle relative to the parent */
+  top: 0; /* Aligns to the top of the parent */
+  left: -500px; /* Offsets 500 pixels to the left for visual effect */
+  z-index: 102; /* Places below the hero content but above the video */
+}
+
+.text {
+  position: relative; /* Allows precise positioning of text elements */
+  z-index: 104; /* Places text above the gradient overlay */
+  padding: 40px; /* Adds padding around the text content */
+  top: 190px; /* Offsets the text 190 pixels from the top */
+}
+
+.text h2 {
+  font-size: 90px; /* Sets a large font size for the heading */
+  color: #fff; /* Sets the heading text color to white */
+  max-width: 600px; /* Limits the width of the heading for readability */
+}
+
+.text p {
+  font-size: 15px; /* Sets the font size for the paragraph */
+  color: #fff; /* Sets the paragraph text color to white */
+  max-width: 490px; /* Limits the width of the paragraph */
+  margin-top: 20px; /* Adds space above the paragraph */
+}
+
+.text1 p {
+  font-size: 25px; /* Sets a larger font size for this paragraph */
+  color: #fff; /* Sets the paragraph text color to white */
+  max-width: 600px; /* Limits the width of the paragraph */
+  margin: 20px 40px; /* Adds margin around the paragraph for spacing */
+  font-family: 'Raleway', sans-serif; /* Uses Raleway font for this paragraph */
+}
+
+.rect5 {
+  width: 100%; /* Spans the full width of the parent */
+  height: 180px; /* Sets the height of the rectangle */
+  background: linear-gradient(
+    to top,
+    #12131d,
+    #12131d,
+    transparent,
+    transparent
+  ); /* Creates a gradient fading from dark background to transparent */
+  position: relative; /* Allows positioning relative to the parent */
+  z-index: 103; /* Places above the video but below text */
+  top: 200px; /* Offsets 200 pixels from the top */
+}
+
+.button1 {
+  background-color: #f72585; /* Sets a vibrant pink background for the button */
+  color: #fff; /* Sets the button text color to white */
+  border: none; /* Removes the default border */
+  padding: 20px 40px; /* Adds padding for a larger clickable area */
+  font-size: 18px; /* Sets the font size for the button text */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  border-radius: 90px; /* Rounds the button edges for a pill shape */
+  margin: 0 40px; /* Adds horizontal margin for spacing */
+  position: relative; /* Allows precise positioning */
+  top: -75px; /* Pulls the button up for alignment */
+  z-index: 205; /* Ensures the button is above other elements */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smoothly transitions background and transform */
+}
+
+.button1:hover {
+  background-color: #d100d1; /* Changes the button background to purple on hover */
+}
+
+.button1:active {
+  background-color: #a000a0; /* Darkens the button background when clicked */
+}
+
+/* Slider Section */
+.slider {
+  width: 100%; /* Spans the full width of the parent */
+  max-width: 2200px; /* Limits the maximum width for larger screens */
+  height: var(--height); /* Uses a CSS variable for height */
+  margin: 0 auto; /* Centers the slider horizontally */
+  overflow: hidden; /* Hides content that overflows the container */
+  position: relative; /* Allows positioning of child elements */
+  z-index: 105; /* Places the slider above other sections */
+  --width: 200px; /* Defines the width of slider items */
+  --height: 200px; /* Defines the height of slider items */
+  --quantity: 10; /* Defines the number of items in the slider */
+}
+
+.slider .list {
+  display: flex; /* Uses flexbox to arrange slider items horizontally */
+  width: calc((var(--width) + 10px) * var(--quantity) * 2); /* Sets width to accommodate all items */
+  animation: slideAnimation 20s linear infinite; /* Applies a continuous sliding animation */
+}
+
+.slider .list .item {
+  position: relative; /* Allows positioning of child elements */
+  width: var(--width); /* Sets item width using CSS variable */
+  height: var(--height); /* Sets item height using CSS variable */
+  flex-shrink: 0; /* Prevents items from shrinking */
+  filter: grayscale(1); /* Applies a grayscale filter by default */
+  transition: filter 0.3s ease; /* Smoothly transitions the filter effect */
+  margin-right: 210px; /* Adds space between items */
+}
+
+.slider .list .item img {
+  width: 200%; /* Makes images twice the item width for effect */
+  height: 100%; /* Spans the full height of the item */
+  object-fit: cover; /* Ensures images cover the area without distortion */
+  border-radius: 5px; /* Slightly rounds image corners */
+}
+
+.slider:hover .list {
+  animation-play-state: paused; /* Pauses the sliding animation on hover */
+}
+
+.slider .list .item:hover {
+  filter: grayscale(0); /* Removes grayscale filter on hover for color */
+}
+
+.play-pause {
+  position: absolute; /* Positions the button relative to the slider */
+  top: 53%; /* Places near the vertical center */
+  left: 100%; /* Positions outside the slider */
+  transform: translate(-50%, -50%); /* Centers the button */
+  background: rgba(0, 0, 0, 0.5); /* Sets a semi-transparent black background */
+  color: white; /* Sets the icon color to white */
+  border: none; /* Removes the default border */
+  border-radius: 50%; /* Makes the button circular */
+  width: 50px; /* Sets the button width */
+  height: 50px; /* Sets the button height */
+  font-size: 18px; /* Sets the font size for the icon */
+  display: flex; /* Uses flexbox to center the icon */
+  justify-content: center; /* Centers the icon horizontally */
+  align-items: center; /* Centers the icon vertically */
+  pointer-events: none; /* Disables interaction with the button */
+}
+
+.play-pause::before {
+  content: '▶'; /* Adds a play icon to the button */
+}
+
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(0); /* Starts the slider at its initial position */
+  }
+  100% {
+    transform: translateX(calc((var(--width) + 10px) * var(--quantity) * -1)); /* Moves the slider left to show all items */
+  }
+}
+
+/* Continue Watching Section */
+.continue-watching {
+  position: relative; /* Allows positioning of child elements */
+  margin: 40px 0; /* Adds vertical margin for spacing */
+}
+
+.text2 h2 {
+  font-size: 30px; /* Sets the font size for the heading */
+  color: #fff; /* Sets the heading text color to white */
+  margin: 0 45px 20px; /* Adds margin for spacing */
+  z-index: 104; /* Places the heading above other elements */
+}
+
+.slider1 {
+  width: 100%; /* Spans the full width of the parent */
+  max-width: 1345px; /* Limits the maximum width */
+  height: var(--height); /* Uses a CSS variable for height */
+  margin: 0 auto; /* Centers the slider horizontally */
+  overflow: hidden; /* Hides overflowing content */
+  position: relative; /* Allows positioning of child elements */
+  z-index: 1; /* Sets a low z-index for this section */
+  --width: 300px; /* Defines the width of slider items */
+  --height: 300px; /* Defines the height of slider items */
+  --quantity: 10; /* Defines the number of items */
+  border-radius: 10px; /* Rounds the corners of the slider */
+}
+
+.slider1 .list {
+  display: flex; /* Uses flexbox to arrange items horizontally */
+  width: calc((var(--width) + 20px) * var(--quantity)); /* Sets width for all items */
+  transition: transform 0.5s ease-in-out; /* Smoothly transitions the sliding effect */
+}
+
+.slider1 .list .item1 {
+  position: relative; /* Allows positioning of child elements */
+  width: var(--width); /* Sets item width using CSS variable */
+  height: var(--height); /* Sets item height using CSS variable */
+  flex-shrink: 0; /* Prevents items from shrinking */
+  margin-right: 320px; /* Adds space between items */
+  transition: transform 0.3s ease, filter 0.3s ease; /* Smoothly transitions transform and filter */
+}
+
+.slider1 .list .item1 img {
+  width: 200%; /* Makes images twice the item width */
+  height: 100%; /* Spans the full height */
+  object-fit: cover; /* Ensures images cover the area */
+  border-radius: 8px; /* Rounds image corners */
+  filter: brightness(0.85) saturate(1.09); /* Adjusts image brightness and saturation */
+}
+
+.slider1 .list .item1:hover {
+  transform: scale(1.01); /* Slightly enlarges the item on hover */
+  filter: brightness(85%); /* Adjusts brightness on hover */
+}
+
+.play-button {
+  position: absolute; /* Positions the button relative to the item */
+  top: 50%; /* Centers vertically */
+  left: 110%; /* Positions outside the item */
+  transform: translate(-50%, -50%); /* Centers the button */
+  background: rgba(255, 255, 255, 0.9); /* Sets a semi-transparent white background */
+  color: #333; /* Sets the icon color to dark gray */
+  border: none; /* Removes the default border */
+  border-radius: 50%; /* Makes the button circular */
+  width: 60px; /* Sets the button width */
+  height: 60px; /* Sets the button height */
+  font-size: 24px; /* Sets the font size for the icon */
+  text-align: center; /* Centers the icon */
+  line-height: 60px; /* Aligns the icon vertically */
+  cursor: default; /* Sets the default cursor */
+  opacity: 0; /* Hides the button by default */
+  transition: opacity 0.3s ease; /* Smoothly transitions opacity */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+.play-button::before {
+  content: '▶'; /* Adds a play icon to the button */
+}
+
+.slider1 .list .item1:hover .play-button {
+  opacity: 1; /* Shows the play button on hover */
+}
+
+.slider1 input[type='radio'] {
+  display: none; /* Hides radio inputs used for slider navigation */
+}
+
+.nav-buttons {
+  position: relative; /* Allows positioning of navigation buttons */
+  z-index: 2; /* Places buttons above the slider content */
+}
+
+.nav-button {
+  position: absolute; /* Positions buttons relative to the slider */
+  top: 50%; /* Centers vertically */
+  transform: translateY(-50%); /* Aligns vertically */
+  background: rgba(255, 255, 255, 0.9); /* Sets a semi-transparent white background */
+  color: #333; /* Sets the icon color to dark gray */
+  border: none; /* Removes the default border */
+  border-radius: 50%; /* Makes the button circular */
+  width: 50px; /* Sets the button width */
+  height: 50px; /* Sets the button height */
+  font-size: 24px; /* Sets the font size for the icon */
+  font-weight: bold; /* Makes the icon bold */
+  cursor: pointer; /* Changes the cursor to a pointer */
+  text-align: center; /* Centers the icon */
+  line-height: 50px; /* Aligns the icon vertically */
+  transition: background 0.3s ease, transform 0.2s ease; /* Smoothly transitions background and transform */
+  display: none; /* Hides buttons by default */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+.nav-button:hover {
+  background: #fff; /* Changes the background to solid white on hover */
+  transform: translateY(-50%) scale(1.1); /* Slightly enlarges the button on hover */
+}
+
+.prev {
+  left: 15px; /* Positions the previous button 15 pixels from the left */
+  top: -140px; /* Adjusts vertical positioning */
+}
+
+.next {
+  right: 15px; /* Positions the next button 15 pixels from the right */
+  top: -140px; /* Adjusts vertical positioning */
+}
+
+/* Show relevant navigation buttons based on active slide */
+#slide1:checked ~ .nav-buttons label[data-to='10'],
+#slide1:checked ~ .nav-buttons label[data-to='2'],
+#slide2:checked ~ .nav-buttons label[data-to='1'],
+#slide2:checked ~ .nav-buttons label[data-to='3'],
+#slide3:checked ~ .nav-buttons label[data-to='2'],
+#slide3:checked ~ .nav-buttons label[data-to='4'],
+#slide4:checked ~ .nav-buttons label[data-to='3'],
+#slide4:checked ~ .nav-buttons label[data-to='5'],
+#slide5:checked ~ .nav-buttons label[data-to='4'],
+#slide5:checked ~ .nav-buttons label[data-to='6'],
+#slide6:checked ~ .nav-buttons label[data-to='5'],
+#slide6:checked ~ .nav-buttons label[data-to='7'],
+#slide7:checked ~ .nav-buttons label[data-to='6'],
+#slide7:checked ~ .nav-buttons label[data-to='8'],
+#slide8:checked ~ .nav-buttons label[data-to='7'],
+#slide8:checked ~ .nav-buttons label[data-to='9'],
+#slide9:checked ~ .nav-buttons label[data-to='8'],
+#slide9:checked ~ .nav-buttons label[data-to='10'],
+#slide10:checked ~ .nav-buttons label[data-to='9'],
+#slide10:checked ~ .nav-buttons label[data-to='1'] {
+  display: block; /* Shows the appropriate navigation buttons based on the active slide */
+}
+
+/* Slide transitions based on checked radio input */
+#slide1:checked ~ .list {
+  transform: translateX(0); /* Positions the slider at the first slide */
+}
+#slide2:checked ~ .list {
+  transform: translateX(calc((var(--width) + 20px) * -1)); /* Moves to the second slide */
+}
+#slide3:checked ~ .list {
+  transform: translateX(calc((var(--width) + 20px) * -2)); /* Moves to the third slide */
+}
+#slide4:checked ~ .list {
+  transform: translateX(calc((var(--width) + 20px) * -3)); /* Moves to the fourth slide */
+}
+#slide5:checked ~ .list {
+  transform: translateX(calc((var(--width) + 20px) * -4)); /* Moves to the fifth slide */
+}
+#slide6:checked ~ .list {
+  transform: translateX(calc((var(--width) + 20px) * -5)); /* Moves to the sixth slide */
+}
+#slide7:checked ~ .list {
+  transform: translateX(calc((var(--width) + 20px) * -6)); /* Moves to the seventh slide */
+}
+#slide8:checked ~ .list {
+  transform: translateX(calc((var(--width) + 20px) * -7)); /* Moves to the eighth slide */
+}
+#slide9:checked ~ .list {
+  transform: translateX(calc((var(--width) + 20px) * -8)); /* Moves to the ninth slide */
+}
+#slide10:checked ~ .list {
+  transform: translateX(calc((var(--width) + 20px) * -9)); /* Moves to the tenth slide */
+}
+
+/* Recommendations Section */
+.recommendations, .latest-episodes {
+  position: relative; /* Allows positioning of child elements */
+  margin: 40px 0 0; /* Adds top margin for spacing, removes bottom margin */
+}
+
+.view {
+  position: relative; /* Allows precise positioning */
+  color: #fff; /* Sets the text color to white */
+  left: 1250px; /* Positions far to the right */
+  top: -45px; /* Pulls up for alignment */
+  font-size: 12px; /* Sets a small font size for the link */
+  transition: color 0.3s ease; /* Smoothly transitions color on hover */
+}
+.view:hover {
+  color: #f72585; /* Changes the text color to pink on hover */
+}
+
+.text3 h2, .text4 h2 {
+  font-size: 30px; /* Sets the font size for the heading */
+  color: #fff; /* Sets the heading text color to white */
+  margin: 0 45px 20px; /* Adds margin for spacing */
+  z-index: 104; /* Places the heading above other elements */
+}
+
+.view1 {
+  position: relative; /* Allows precise positioning */
+  color: #fff; /* Sets the text color to white */
+  left: 1250px; /* Positions far to the right */
+  top: -45px; /* Pulls up for alignment */
+  font-size: 12px; /* Sets a small font size for the link */
+  transition: color 0.3s ease; /* Smoothly transitions color on hover */
+}
+.view1:hover {
+  color: #f72585; /* Changes the text color to pink on hover */
+}
+
+.image-grid {
+  display: flex; /* Uses flexbox to arrange images */
+  flex-wrap: wrap; /* Allows images to wrap to the next line */
+  gap: 25px; /* Adds space between images */
+  margin: 0 45px 20px; /* Adds margin for spacing */
+}
+
+.image-grid div {
+  flex: 0 0 auto; /* Prevents flex items from growing or shrinking */
+}
+
+.image1, .image2, .image3, .image4, .image5, .image6,
+.image7, .image8, .image9, .image10, .image11, .image12,
+.image13, .image14, .image15, .image16, .image17, .image18 {
+  width: 200px; /* Sets the image width */
+  height: 285px; /* Sets the image height */
+  z-index: 104; /* Places images above other elements */
+  border-radius: 2px; /* Slightly rounds image corners */
+  transition: transform 0.3s ease; /* Smoothly transitions transform on hover */
+}
+
+.image1:hover, .image2:hover, .image3:hover, .image4:hover, .image5:hover, .image6:hover,
+.image7:hover, .image8:hover, .image9:hover, .image10:hover, .image11:hover, .image12:hover,
+.image13:hover, .image14:hover, .image15:hover, .image16:hover, .image17:hover, .image18:hover {
+  transform: translateY(-4px); /* Lifts images slightly on hover */
+}
+
+.text4 p, .text5 p, .text6 p, .text7 p, .text8 p, .text9 p,
+.text10 p, .text11 p, .text12 p, .text13 p, .text14 p, .text15 p,
+.text16 p, .text17 p, .text18 p, .text19 p, .text20 p, .text21 p,
+.text22 p, .text23 p, .text24 p, .text25 p, .text26 p, .text27 p,
+.text28 p, .text29 p, .text30 p, .text31 p, .text32 p, .text33 p,
+.text34 p, .text35 p, .text36 p, .text37 p, .text38 p, .text39 p {
+  font-size: 15px; /* Sets the font size for paragraphs */
+  color: #fff; /* Sets the paragraph text color to white */
+  z-index: 104; /* Places paragraphs above other elements */
+  max-width: 240px; /* Limits the width of paragraphs */
+  margin: 5px 0 0; /* Adds top margin for spacing */
+}
+
+.text5 p, .text7 p, .text9 p, .text11 p, .text13 p, .text15 p,
+.text17 p, .text19 p, .text21 p, .text23 p, .text25 p, .text27 NEL p,
+.text29 p, .text31 p, .text33 p, .text35 p, .text37 p, .text39 p {
+  color: #ffffffb1; /* Sets a slightly transparent white color for specific paragraphs */
+}
+
+/* Ensure no extra space at the bottom */
+body > *:last-child {
+  margin-bottom: 0; /* Removes bottom margin from the last child to prevent extra space */
+}
+
+/* Footer Styles */
+.footer {
+  margin-top: 40px; /* Adds space above the footer */
+}
+
+.rect33 {
+  width: 100%; /* Spans the full width */
+  max-width: 1440px; /* Limits the maximum width */
+  height: 200px; /* Sets the footer height */
+  background-image: linear-gradient(to right, #fff, #F72585, #7209B7); /* Applies a gradient background */
+  border-radius: 20px 20px 0 0; /* Rounds the top corners */
+  position: relative; /* Allows positioning of child elements */
+  z-index: 100; /* Places the footer above other elements */
+  top: 0; /* Aligns to the top */
+  left: 50%; /* Centers horizontally */
+  transform: translateX(-50%); /* Adjusts for centering */
+}
+
+.pokemon-image14 {
+  width: 50px; /* Sets the image width */
+  height: 50px; /* Sets the image height */
+  border-radius: 50%; /* Makes the image circular */
+  position: absolute; /* Positions relative to the footer */
+  z-index: 104; /* Places the image above the footer background */
+  top: 65px; /* Positions from the top */
+  right: 70px; /* Positions from the right */
+  transition: transform 0.3s ease; /* Smoothly transitions transform on hover */
+}
+
+.pokemon-image14:hover {
+  transform: translateY(-10px); /* Lifts the image on hover */
+}
+
+.pokemon-image15 {
+  width: 50px; /* Sets the image width */
+  height: 50px; /* Sets the image height */
+  border-radius: 50%; /* Makes the image circular */
+  position: absolute; /* Positions relative to the footer */
+  z-index: 104; /* Places the image above the footer background */
+  top: 65px; /* Positions from the top */
+  right: 130px; /* Positions from the right */
+  transition: transform 0.3s ease; /* Smoothly transitions transform on hover */
+}
+
+.pokemon-image15:hover {
+  transform: translateY(-10px); /* Lifts the image on hover */
+}
+
+.pokemon-image16 {
+  width: 50px; /* Sets the image width */
+  height: 50px; /* Sets the image height */
+  border-radius: 50%; /* Makes the image circular */
+  position: absolute; /* Positions relative to the footer */
+  z-index: 104; /* Places the image above the footer background */
+  top: 65px; /* Positions from the top */
+  right: 190px; /* Positions from the right */
+  transition: transform 0.3s ease; /* Smoothly transitions transform on hover */
+}
+
+.pokemon-image16:hover {
+  transform: translateY(-10px); /* Lifts the image on hover */
+}
+
+.pokemon-image17 {
+  width: 50px; /* Sets the image width */
+  height: 50px; /* Sets the image height */
+  border-radius: 50%; /* Makes the image circular */
+  position: absolute; /* Positions relative to the footer */
+  z-index: 104; /* Places the image above the footer background */
+  top: 65px; /* Positions from the top */
+  right: 250px; /* Positions from the right */
+  transition: transform 0.3s ease; /* Smoothly transitions transform on hover */
+}
+
+.pokemon-image17:hover {
+  transform: translateY(-10px); /* Lifts the image on hover */
+}
+
+.text14 p {
+  font-size: 15px; /* Sets the font size for the paragraph */
+  color: #fff; /* Sets the paragraph text color to white */
+  position: absolute; /* Positions relative to the footer */
+  z-index: 103; /* Places below images but above the background */
+  top: 153px; /* Positions from the top */
+  left: 50%; /* Centers horizontally */
+  transform: translateX(-50%); /* Adjusts for centering */
+  background-color: #ffffff29; /* Adds a semi-transparent white background */
+  padding: 11px 0px; /* Adds vertical padding */
+  width: 3000px; /* Sets a large width for centering */
+  max-width: 5000px; /* Limits the maximum width */
+  text-align: center; /* Centers the text */
+}
+
+.text15 a {
+  font-size: 15px; /* Sets the font size for the link */
+  color: #0000006b; /* Sets the link color to a semi-transparent black */
+  position: absolute; /* Positions relative to the footer */
+  z-index: 103; /* Places below images */
+  top: 40px; /* Positions from the top */
+  left: 60px; /* Positions from the left */
+  text-decoration: none; /* Removes the default underline from links */
+}
+
+.text15 a:hover {
+  color: #F72585; /* Changes the link color to pink on hover */
+}
+
+.text16 a {
+  font-size: 15px; /* Sets the font size for the link */
+  color: #0000006b; /* Sets the link color to a semi-transparent black */
+  position: absolute; /* Positions relative to the footer */
+  z-index: 103; /* Places below images */
+  top: 60px; /* Positions from the top */
+  left: 60px; /* Positions from the left */
+  text-decoration: none; /* Removes the default underline from links */
+}
+
+.text16 a:hover {
+  color: #F72585; /* Changes the link color to pink on hover */
+}
+
+.text17 a {
+  font-size: 15px; /* Sets the font size for the link */
+  color: #0000006b; /* Sets the link color to a semi-transparent black */
+  position: absolute; /* Positions relative to the footer */
+  z-index: 103; /* Places below images */
+  top: 80px; /* Positions from the top */
+  left: 60px; /* Positions from the left */
+  text-decoration: none; /* Removes the default underline from links */
+}
+
+.text17 a:hover {
+  color: #F72585; /* Changes the link color to pink on hover */
+}
+
+.text18 a {
+  font-size: 15px; /* Sets the font size for the link */
+  color: #0000006b; /* Sets the link color to a semi-transparent black */
+  position: absolute; /* Positions relative to the footer */
+  z-index: 103; /* Places below images */
+  top: 100px; /* Positions from the top */
+  left: 60px; /* Positions from the left */
+  text-decoration: none; /* Removes the default underline from links */
+}
+
+.text18 a:hover {
+  color: #F72585; /* Changes the link color to pink on hover */
+}
+
+.text19 a {
+  font-size: 15px; /* Sets the font size for the link */
+  color: #0000006b; /* Sets the link color to a semi-transparent black */
+  position: absolute; /* Positions relative to the footer */
+  z-index: 103; /* Places below images */
+  top: 120px; /* Positions from the top */
+  left: 60px; /* Positions from the left */
+  text-decoration: none; /* Removes the default underline from links */
+}
+
+.text19 a:hover {
+  color: #F72585; /* Changes the link color to pink on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  /* Adjust navigation icons */
+  .rect1, .rect2, .rect3 {
+    display: none; /* Hides navigation rectangles on smaller screens */
+  }
+
+  /* Adjust hero section */
+  .text h2 {
+    font-size: 60px; /* Reduces the font size for the heading */
+    max-width: 100%; /* Allows the heading to span the full width */
+  }
+
+  .text p {
+    max-width: 100%; /* Allows the paragraph to span the full width */
+  }
+
+  .text1 p {
+    font-size: 20px; /* Reduces the font size for the paragraph */
+    max-width: 100%; /* Allows the paragraph to span the full width */
+  }
+
+  .rect4 {
+    left: 0; /* Removes the negative offset for better alignment */
+  }
+
+  /* Adjust slider */
+  .slider {
+    max-width: 100%; /* Allows the slider to span the full width */
+  }
+
+  .slider .list .item {
+    margin-right: 100px; /* Reduces the margin between items */
+  }
+
+  /* Adjust image grid */
+  .image-grid {
+    justify-content: center; /* Centers images horizontally */
+    margin: 0 20px 20px; /* Adjusts margin for spacing */
+  }
+
+  /* Adjust "View More" links */
+  .view, .view1 {
+    left: auto; /* Removes absolute left positioning */
+    right: 20px; /* Positions from the right */
+    top: -40px; /* Adjusts vertical positioning */
+  }
+
+  /* Adjust footer */
+  .text14 p {
+    width: 90%; /* Makes the footer text responsive */
+    padding: 8px 10px; /* Adjusts padding */
+    font-size: 14px; /* Reduces the font size */
+  }
+
+  .pokemon-image14, .pokemon-image15, .pokemon-image16, .pokemon-image17 {
+    width: 40px; /* Reduces the image size */
+    height: 40px; /* Reduces the image height */
+    top: 50px; /* Adjusts vertical positioning */
+  }
+
+  .pokemon-image14 {
+    right: 50px; /* Adjusts position from the right */
+  }
+
+  .pokemon-image15 {
+    right: 100px; /* Adjusts position from the right */
+  }
+
+  .pokemon-image16 {
+    right: 150px; /* Adjusts position from the right */
+  }
+
+  .pokemon-image17 {
+    right: 200px; /* Adjusts position from the right */
+  }
+
+  .text15 p, .text16 p, .text17 p, .text18 p, .text19 p {
+    left: 30px; /* Adjusts position from the left */
+    font-size: 14px; /* Reduces the font size */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust video section */
+  .video-container {
+    height: 500px; /* Reduces the video container height */
+    left: 0; /* Removes the left offset */
+  }
+
+  .hero-section {
+    margin-top: -500px; /* Adjusts the overlap with the video */
+  }
+
+  .rect4 {
+    height: 500px; /* Matches the reduced video height */
+  }
+
+  .text {
+    padding: 20px; /* Reduces padding */
+    top: 100px; /* Adjusts vertical positioning */
+  }
+
+  .text h2 {
+    font-size: 40px; /* Further reduces the font size for the heading */
+  }
+
+  .text p {
+    font-size: 14px; /* Reduces the font size for the paragraph */
+  }
+
+  .text1 p {
+    font-size: 18px; /* Reduces the font size for the paragraph */
+    margin: 10px 20px; /* Adjusts margin */
+  }
+
+  .rect5 {
+    height: 120px; /* Reduces the height */
+    top: 150px; /* Adjusts vertical positioning */
+  }
+
+  .button1 {
+    padding: 15px 30px; /* Reduces padding */
+    font-size: 16px; /* Reduces the font size */
+    top: -60px; /* Adjusts vertical positioning */
+    margin: 0 20px; /* Adjusts margin */
+  }
+
+  /* Adjust slider */
+  .slider {
+    --width: 150px; /* Reduces the item width */
+    --height: 150px; /* Reduces the item height */
+  }
+
+  .slider .list .item {
+    margin-right: 50px; /* Further reduces the margin between items */
+  }
+
+  .play-pause {
+    width: 40px; /* Reduces the button size */
+    height: 40px; /* Reduces the button height */
+    font-size: 14px; /* Reduces the font size for the icon */
+  }
+
+  /* Adjust continue watching section */
+  .text2 h2 {
+    font-size: 24px; /* Reduces the font size for the heading */
+    margin: 0 20px 15px; /* Adjusts margin */
+  }
+
+  /* Adjust image grid */
+  .text3 h2, .text4 h2 {
+    font-size: 24px; /* Reduces the font size for the heading */
+    margin: 0 20px 15px; /* Adjusts margin */
+  }
+
+  .image1, .image2, .image3, .image4, .image5, .image6,
+  .image7, .image8, .image9, .image10, .image11, .image12,
+  .image13, .image14, .image15, .image16, .image17, .image18 {
+    width: 150px; /* Reduces the image width */
+    height: 214px; /* Reduces the image height */
+  }
+
+  .text4 p, .text5 p, .text6 p, .text7 p, .text8 p, .text9 p,
+  .text10 p, .text11 p, .text12 p, .text13 p, .text14 p, .text15 p,
+  .text16 p, .text17 p, .text18 p, .text19 p, .text20 p, .text21 p,
+  .text22 p, .text23 p, .text24 p, .text25 p, .text26 p, .text27 p,
+  .text28 p, .text29 p, .text30 p, .text31 p, .text32 p, .text33 p,
+  .text34 p, .text35 p, .text36 p, .text37 p, .text38 p, .text39 p {
+    font-size: 13px; /* Reduces the font size for paragraphs */
+    max-width: 150px; /* Reduces the paragraph width */
+  }
+
+  /* Adjust footer */
+  .rect33 {
+    height: 250px; /* Increases the height for a stacked layout */
+  }
+
+  .text14 p {
+    top: 180px; /* Adjusts vertical positioning */
+    font-size: 12px; /* Reduces the font size */
+    width: 80%; /* Reduces the width */
+    padding: 6px 8px; /* Adjusts padding */
+  }
+
+  .pokemon-image14, .pokemon-image15, .pokemon-image16, .pokemon-image17 {
+    width: 35px; /* Further reduces the image size */
+    height: 35px; /* Further reduces the image height */
+    top: 20px; /* Adjusts vertical positioning */
+  }
+
+  .pokemon-image14 {
+    right: 20px; /* Adjusts position from the right */
+  }
+
+  .pokemon-image15 {
+    right: 70px; /* Adjusts position from the right */
+  }
+
+  .pokemon-image16 {
+    right: 120px; /* Adjusts position from the right */
+  }
+
+  .pokemon-image17 {
+    right: 170px; /* Adjusts position from the right */
+  }
+
+  .text15 p, .text16 p, .text17 p, .text18 p, .text19 p {
+    left: 20px; /* Adjusts position from the left */
+    font-size: 12px; /* Reduces the font size */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust navigation */
+  .pokemon-image1 {
+    width: 40px; /* Reduces the image size */
+    top: 10px; /* Adjusts vertical positioning */
+    left: 10px; /* Adjusts horizontal positioning */
+  }
+
+  .title {
+    font-size: 12px; /* Reduces the font size */
+    top: 15px; /* Maintains vertical positioning */
+    left: 60px; /* Adjusts horizontal positioning */
+  }
+
+  /* Adjust video section */
+  .video-container {
+    height: 300px; /* Further reduces the video height */
+  }
+
+  .hero-section {
+    margin-top: -300px; /* Adjusts the overlap */
+  }
+
+  .rect4 {
+    height: 300px; /* Matches the video height */
+  }
+
+  .text {
+    padding: 15px; /* Reduces padding */
+    top: 50px; /* Adjusts vertical positioning */
+  }
+
+  .text h2 {
+    font-size: 28px; /* Further reduces the font size for the heading */
+  }
+
+  .text p {
+    font-size: 12px; /* Further reduces the font size for the paragraph */
+  }
+
+  .text1 p {
+    font-size: 16px; /* Further reduces the font size for the paragraph */
+    margin: 5px 15px; /* Adjusts margin */
+  }
+
+  .rect5 {
+    height: 80px; /* Further reduces the height */
+    top: 100px; /* Adjusts vertical positioning */
+  }
+
+  .button1 {
+    padding: 10px 20px; /* Further reduces padding */
+    font-size: 14px; /* Further reduces the font size */
+    top: -50px; /* Adjusts vertical positioning */
+    margin: 0 15px; /* Adjusts margin */
+  }
+
+  /* Adjust slider */
+  .slider {
+    --width: 100px; /* Further reduces the item width */
+    --height: 100px; /* Further reduces the item height */
+  }
+
+  .slider .list .item {
+    margin-right: 20px; /* Further reduces the margin between items */
+  }
+
+  .play-pause {
+    width: 30px; /* Further reduces the button size */
+    height: 30px; /* Further reduces the button height */
+    font-size: 12px; /* Further reduces the font size for the icon */
+  }
+
+  /* Adjust continue watching section */
+  .text2 h2 {
+    font-size: 20px; /* Further reduces the font size for the heading */
+    margin: 0 15px 10px; /* Adjusts margin */
+  }
+
+  /* Adjust image grid */
+  .text3 h2, .text4 h2 {
+    font-size: 20px; /* Further reduces the font size for the heading */
+    margin: 0 15px 10px; /* Adjusts margin */
+  }
+
+  .image1, .image2, .image3, .image4, .image5, .image6,
+  .image7, .image8, .image9, .image10, .image11, .image12,
+  .image13, .image14, .image15, .image16, .image17, .image18 {
+    width: 120px; /* Further reduces the image width */
+    height: 171px; /* Further reduces the image height */
+  }
+
+  .text4 p, .text5 p, .text6 p, .text7 p, .text8 p, .text9 p,
+  .text10 p, .text11 p, .text12 p, .text13 p, .text14 p, .text15 p,
+  .text16 p, .text17 p, .text18 p, .text19 p, .text20 p, .text21 p,
+  .text22 p, .text23 p, .text24 p, .text25 p, .text26 p, .text27 p,
+  .text28 p, .text29 p, .text30 p, .text31 p, .text32 p, .text33 p,
+  .text34 p, .text35 p, .text36 p, .text37 p, .text38 p, .text39 p {
+    font-size: 11px; /* Further reduces the font size for paragraphs */
+    max-width: 120px; /* Further reduces the paragraph width */
+  }
+
+  /* Adjust "View More" links */
+  .view, .view1 {
+    font-size: 10px; /* Further reduces the font size */
+    top: -35px; /* Adjusts vertical positioning */
+    right: 15px; /* Adjusts position from the right */
+  }
+
+  /* Adjust footer */
+  .rect33 {
+    height: 300px; /* Further increases the height for stacking */
+  }
+
+  .text14 p {
+    top: 220px; /* Adjusts vertical positioning */
+    font-size: 10px; /* Further reduces the font size */
+    width: 90%; /* Reduces the width */
+    padding: 5px 6px; /* Adjusts padding */
+  }
+
+  .pokemon-image14, .pokemon-image15, .pokemon-image16, .pokemon-image17 {
+    width: 30px; /* Further reduces the image size */
+    height: 30px; /* Further reduces the image height */
+    top: 10px; /* Adjusts vertical positioning */
+  }
+
+  .pokemon-image14 {
+    right: 10px; /* Adjusts position from the right */
+  }
+
+  .pokemon-image15 {
+    right: 50px; /* Adjusts position from the right */
+  }
+
+  .pokemon-image16 {
+    right: 90px; /* Adjusts position from the right */
+  }
+
+  .pokemon-image17 {
+    right: 130px; /* Adjusts position from the right */
+  }
+
+  .text15 p, .text16 p, .text17 p, .text18 p, .text19 p {
+    left: 15px; /* Adjusts position from the left */
+    font-size: 10px; /* Further reduces the font size */
+  }
+
+  .text15 p { top: 50px; /* Adjusts vertical positioning */ }
+  .text16 p { top: 70px; /* Adjusts vertical positioning */ }
+  .text17 p { top: 90px; /* Adjusts vertical positioning */ }
+  .text18 p { top: 110px; /* Adjusts vertical positioning */ }
+  .text19 p { top: 130px; /* Adjusts vertical positioning */ }
+}
+
+/* Responsive adjustments for existing sliders */
+@media (max-width: 768px) {
+  .slider1 {
+    --width: 200px; /* Reduces the item width */
+    --height: 200px; /* Reduces the item height */
+  }
+  .nav-button {
+    width: 40px; /* Reduces the button size */
+    height: 40px; /* Reduces the button height */
+    font-size: 20px; /* Reduces the font size for the icon */
+    line-height: 40px; /* Adjusts the icon alignment */
+  }
+  .play-button {
+    width: 50px; /* Reduces the button size */
+    height: 50px; /* Reduces the button height */
+    font-size: 20px; /* Reduces the font size for the icon */
+    line-height: 50px; /* Adjusts the icon alignment */
+  }
+}
+
+@media (max-width: 480px) {
+  .slider1 {
+    --width: 150px; /* Further reduces the item width */
+    --height: 150px; /* Further reduces the item height */
+  }
+  .nav-button {
+    width: 35px; /* Further reduces the button size */
+    height: 35px; /* Further reduces the button height */
+    font-size: 16px; /* Further reduces the font size for the icon */
+    line-height: 35px; /* Adjusts the icon alignment */
+  }
+  .play-button {
+    width: 40px; /* Further reduces the button size */
+    height: 40px; /* Further reduces the button height */
+    font-size: 16px; /* Further reduces the font size for the icon */
+    line-height: 40px; /* Adjusts the icon alignment */
+  }
+}

@@ -1,0 +1,876 @@
+/* ========================================================================= */
+/* Base Styles */
+/* ========================================================================= */
+* {
+    margin: 0; /* Removes default margin from all elements */
+    padding: 0; /* Removes default padding from all elements */
+    box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+}
+
+html, body {
+    height: auto; /* Resets height to adapt to the content */
+    min-height: 100%; /* Ensures the page is at least as tall as the viewport */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar for a cleaner design */
+}
+
+body {
+    font-family: "Montserrat", sans-serif; /* Sets the body font to Montserrat */
+    background-color: #12131d; /* Dark background color */
+    overflow-x: hidden; /* Disables horizontal scrolling */
+}
+
+/* ========================================================================= */
+/* Navigation */
+/* ========================================================================= */
+nav {
+    background-color: #161723; /* Dark background for the navigation */
+    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.055); /* Adds a subtle shadow to the navigation bar */
+    position: fixed; /* Keeps the navigation fixed at the top of the page */
+    top: 0; /* Positions the navigation at the top */
+    left: 0; /* Aligns the navigation to the left edge */
+    width: 100%; /* Makes the navigation full width */
+    z-index: 1000; /* Ensures the navigation appears on top of other elements */
+    padding: 23px 0; /* Adds vertical padding */
+}
+
+nav ul {
+    list-style: none; /* Removes default list styles */
+    display: flex; /* Arranges navigation items in a row */
+    justify-content: center; /* Centers the navigation items horizontally */
+    align-items: center; /* Aligns navigation items vertically */
+}
+
+nav ul li {
+    margin: 0 1.5rem; /* Adds space between the navigation items */
+}
+
+nav ul li a {
+    text-decoration: none; /* Removes underlines from links */
+    color: #fff; /* Sets text color to white */
+    font-family: 'Helvetica', sans-serif; /* Uses Helvetica font for the links */
+    font-weight: 500; /* Medium font weight */
+    font-size: 1rem; /* Sets the font size */
+    padding: 0.5rem 1rem; /* Adds padding around the text */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and transform transitions */
+}
+
+nav ul li a:hover {
+    color: #F72585; /* Changes link color on hover */
+    transform: translateY(-2px); /* Slight upward movement on hover */
+}
+
+nav ul li a:active {
+    color: #D100D1; /* Changes link color when clicked */
+}
+
+/* Navigation Responsive Styles */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stacks the navigation items vertically on smaller screens */
+        padding: 1rem 0; /* Adds vertical padding */
+    }
+
+    nav ul li {
+        margin: 0.5rem 0; /* Reduces the space between items */
+    }
+}
+
+/* ========================================================================= */
+/* Fixed Elements */
+/* ========================================================================= */
+.pokemon-image1 {
+    width: 60px; /* Sets the width of the first Pokemon image */
+    position: fixed; /* Fixes the position relative to the viewport */
+    top: 4px; /* Positions the image at the top */
+    left: 20px; /* Positions the image to the left */
+    z-index: 1001; /* Ensures the image is on top of other elements */
+}
+
+.title {
+    font-size: 15px; /* Sets font size for the title */
+    color: #fff; /* Sets title color to white */
+    position: fixed; /* Fixes the title in place */
+    top: 15px; /* Positions the title at the top */
+    left: 80px; /* Positions the title to the left */
+    z-index: 1001; /* Ensures the title appears above other elements */
+}
+
+.rect1, .rect2, .rect3 {
+    width: 100px; /* Sets width for the rectangles */
+    height: 100px; /* Sets height for the rectangles */
+    background-color: #fff; /* White background for the rectangles */
+    margin: 0; /* Removes default margin */
+    transition: background-color 0.3s ease; /* Smooth background color change on hover */
+}
+
+/* Changes all rectangles when hovering on the parent .group */
+.group:hover .rect1,
+.group:hover .rect2,
+.group:hover .rect3 {
+    background-color: #F72585; /* Changes background color to pink when hovered */
+}
+
+.rect1 {
+    width: 30px; /* Sets specific width for rect1 */
+    height: 5px; /* Sets specific height for rect1 */
+    background-color: #fff; /* White background for rect1 */
+    border-radius: 90px; /* Rounds the corners */
+    position: fixed; /* Fixes position */
+    top: 26px; /* Positioning from the top */
+    left: 1370px; /* Positioning from the left */
+    z-index: 1001; /* Ensures it's on top */
+}
+
+.rect2 {
+    width: 25px; /* Sets width for rect2 */
+    height: 5px; /* Sets height for rect2 */
+    background-color: #fff; /* White background for rect2 */
+    border-radius: 90px; /* Rounds the corners */
+    position: fixed; /* Fixes position */
+    top: 36px; /* Positioning from the top */
+    left: 1375px; /* Positioning from the left */
+    z-index: 1001; /* Ensures it's on top */
+}
+
+.rect3 {
+    width: 15px; /* Sets width for rect3 */
+    height: 5px; /* Sets height for rect3 */
+    background-color: #fff; /* White background for rect3 */
+    border-radius: 90px; /* Rounds the corners */
+    position: fixed; /* Fixes position */
+    top: 46px; /* Positioning from the top */
+    left: 1385px; /* Positioning from the left */
+    z-index: 1001; /* Ensures it's on top */
+}
+
+.bg {
+    width: 1440px; /* Sets the width of the background */
+    height: 800px; /* Sets the height of the background */
+    position: relative; /* Relative positioning for background */
+    z-index: -100; /* Sends the background behind other elements */
+    filter: blur(3px); /* Applies a blur effect */
+    margin-bottom: -700px; /* Positions the background lower */
+    opacity: 80%; /* Sets opacity to 80% for transparency */
+}
+
+.pokemon-image2 {
+    width: 600px; /* Sets width for the second Pokemon image */
+    height: auto; /* Maintains aspect ratio */
+    position: relative; /* Relative positioning */
+    top: -10px; /* Adjusts position */
+    left: 410px; /* Positions it from the left */
+    margin-bottom: -660px; /* Adjusts margin to position it further down */
+    z-index: 101; /* Ensures it's above the background */
+}
+
+.rect4 {
+    width: 1300px; /* Sets width for the rect4 */
+    height: 650px; /* Sets height for rect4 */
+    background-color: #ffffff16; /* Semi-transparent background */
+    box-shadow: #12131d16 0 0 10px; /* Adds a subtle shadow */
+    left: 70px; /* Positions it from the left */
+    z-index: 100; /* Ensures it's below other elements */
+    position: relative; /* Relative positioning */
+    border-radius: 45px; /* Rounds the corners */
+    margin-bottom: -500px; /* Moves it lower */
+}
+
+.text1 {
+    font-size: 50px; /* Sets the font size to 50px for a large heading */
+    font-family: "DotGothic16", sans-serif; /* Uses the DotGothic16 font for a unique, modern style */
+    color: #fff; /* Sets the text color to white */
+    left: 200px; /* Positions the text 200px from the left edge of its containing element */
+    z-index: 100; /* Ensures that this text appears above other elements with lower z-index values */
+    position: relative; /* Positions the element relative to its normal position */
+    margin-bottom: -70px; /* Moves the text upwards by 70px, reducing space below it */
+    text-shadow: #12131d2b 0 3px 6px; /* Adds a subtle shadow to the text for a 3D effect */
+}
+
+.text2 {
+    font-size: 50px; /* Sets the font size to 50px for consistency with text1 */
+    font-family: "DotGothic16", sans-serif; /* Uses the same DotGothic16 font */
+    color: #fff; /* Sets the text color to white */
+    left: 1100px; /* Positions the text 1100px from the left edge */
+    z-index: 100; /* Ensures it sits above elements with a lower z-index */
+    position: relative; /* Positions relative to its normal place in the layout */
+    margin-bottom: 5px; /* Adds a small margin below the text */
+    text-shadow: #12131d2b 0 3px 6px; /* Adds a subtle text shadow for visual depth */
+}
+
+.text3 {
+    font-size: 230px; /* Sets a very large font size for emphasis */
+    color: #fff; /* Sets the text color to white */
+    left: 100px; /* Positions the text 100px from the left edge */
+    z-index: 100; /* Ensures this text appears above other elements */
+    position: relative; /* Positions relative to its normal position */
+    font-family: "Cinzel Decorative", sans-serif; /* Uses a decorative font for an elegant style */
+    text-shadow: #12131d2b 0 3px 6px; /* Adds a text shadow for depth */
+    margin-bottom: 138px; /* Adds space below the text */
+}
+
+.rect5{
+    width: 1440px; /* Sets the width of the rectangle to 1440px */
+    height: 730px; /* Sets the height of the rectangle to 730px */
+    position: relative; /* Positions the rectangle relative to its normal place */
+    background-color: #F77F00; /* Sets the background color to a vibrant orange */
+    z-index: 101; /* Positions it slightly above elements with a lower z-index */
+    margin-bottom: -670px; /* Moves the rectangle upwards, overlapping other elements */
+}
+
+.pokemon-image3 {
+    width: 700px; /* Sets the image width to 700px */
+    height: auto; /* Keeps the image's aspect ratio intact */
+    position: relative; /* Positions the image relative to its normal position */
+    top: -10px; /* Moves the image upwards by 10px */
+    left: 110px; /* Positions the image 110px from the left edge */
+    margin-bottom: -480px; /* Moves the image upwards by 480px, reducing space below it */
+    z-index: 103; /* Ensures this image appears above other elements with lower z-index */
+}
+
+.text4 h1{
+    font-size: 100px; /* Sets the font size to 100px for the main heading */
+    color: #fff; /* Sets the text color to white */
+    left: 730px; /* Positions the text 730px from the left edge */
+    z-index: 103; /* Ensures this heading appears above other elements */
+    position: relative; /* Positions the heading relative to its normal position */
+    margin-bottom: 138px; /* Adds space below the heading */
+    font-style: italic; /* Makes the text italic for a stylized look */
+    margin-bottom: -140px; /* Moves the heading upwards by 140px */
+    text-shadow: #fff 0px 0px 3px; /* Adds a soft white shadow to the text */
+}
+
+.text4 h2{
+    font-size: 30px; /* Sets the font size to 30px for subheading */
+    color: #fff; /* Sets the text color to white */
+    left: 740px; /* Positions the text 740px from the left edge */
+    z-index: 101; /* Positions it slightly above elements with a lower z-index */
+    position: relative; /* Positions relative to its normal place */
+    margin-bottom: -35px; /* Moves the subheading upwards by 35px */
+    text-shadow: #fff 0px 0px 3px; /* Adds a text shadow to enhance readability */
+}
+
+.text4 h3{
+    font-size: 30px; /* Sets the font size to 30px for the third heading */
+    color: #fff; /* Sets the text color to white */
+    left: 1250px; /* Positions the text 1250px from the left edge */
+    z-index: 101; /* Ensures this heading appears above elements with a lower z-index */
+    position: relative; /* Positions relative to its normal position */
+    margin-bottom: 100px; /* Adds space below the heading */
+    text-shadow: #fff 0px 0px 3px; /* Adds a shadow to the text for visual depth */
+}
+
+.text4 p{
+    font-size: 15px; /* Sets the font size to 15px for paragraphs */
+    color: #fff; /* Sets the text color to white */
+    left: 750px; /* Positions the text 750px from the left edge */
+    z-index: 101; /* Ensures this text appears above elements with lower z-index */
+    position: relative; /* Positions relative to its normal place */
+    margin-bottom: 40px; /* Adds space below the paragraph */
+    max-width: 600px; /* Restricts the maximum width of the paragraph to 600px */
+    text-align: justify; /* Aligns the text to both the left and right edges */
+}
+
+.pokemon-container {
+    position: relative; /* Positions the container relative to its normal place */
+    width: auto; /* Allows the container to adjust to the size of its content */
+    height: auto; /* Allows the container to adjust to the size of its content */
+    z-index: 104; /* Positions the container above other elements */
+    margin-bottom: -210px; /* Moves the container upwards by 210px */
+    display: block; /* Ensures the container respects the positioning of its children */
+    overflow: visible; /* Allows children to render outside the container's bounds */
+    transition: transform 0.3s ease; /* Enables a smooth transition effect */
+}
+
+.pokemon-container:hover {
+    transform: translateY(-10px); /* Moves the container up by 10px on hover */
+}
+
+.pokemon-container1 {
+    position: relative; /* Ensures that the container is positioned relative to its normal place */
+    width: auto; /* Allows the container to adjust to its content size */
+    height: auto; /* Adjusts the height based on content */
+    z-index: 104; /* Keeps the container above other elements */
+    left: 320px; /* Moves the container 320px from the left edge */
+    display: block; /* Ensures the container respects its children's positions */
+    overflow: visible; /* Allows content to extend outside the container */
+    transition: transform 0.3s ease; /* Enables smooth movement on hover */
+    margin-bottom: 100px; /* Adds space below the container */
+}
+
+.pokemon-container1:hover {
+    transform: translateY(-10px); /* Moves the container up by 10px when hovered */
+}
+
+/* Unchanged child styles */
+.rect6 {
+    width: 307px; /* Set the width of the rectangle */
+    height: 200px; /* Set the height of the rectangle */
+    position: relative; /* Positioned relative to its parent container */
+    background-color: #fff; /* White background color */
+    z-index: 103; /* Ensures that the rectangle appears above other elements */
+    left: 750px; /* Positioned 750px from the left side */
+    border-radius: 15px; /* Rounded corners with a radius of 15px */
+    margin-bottom: -180px; /* Moves the element upwards by 180px */
+}
+
+.pokemon-image4 {
+    width: 300px; /* Set the width of the Pokémon image */
+    height: auto; /* Adjust the height automatically to maintain aspect ratio */
+    position: relative; /* Positioned relative to its parent container */
+    top: -10px; /* Moves the image upwards by 10px */
+    left: 670px; /* Positioned 670px from the left side */
+    margin-bottom: -150px; /* Moves the image upwards by 150px */
+    z-index: 103; /* Ensures that the image appears above other elements */
+}
+
+.text5 h1 {
+    font-size: 20px; /* Sets the font size of the main heading */
+    color: #F77F00; /* Sets the font color to a specific orange */
+    left: 880px; /* Positioned 880px from the left side */
+    z-index: 103; /* Ensures the heading appears above other elements */
+    position: relative; /* Positioned relative to its parent container */
+    margin-bottom: -40px; /* Moves the heading upwards by 40px */
+}
+
+.text5 h2 {
+    font-size: 12px; /* Sets the font size of the subheading */
+    color: #F77F00; /* Sets the font color to a specific orange */
+    left: 990px; /* Positioned 990px from the left side */
+    z-index: 103; /* Ensures the subheading appears above other elements */
+    position: relative; /* Positioned relative to its parent container */
+    margin-bottom: 35px; /* Adds space below the subheading */
+}
+
+.text5 p {
+    font-size: 10px; /* Sets the font size of the paragraph */
+    color: #F77F00; /* Sets the font color to a specific orange */
+    left: 881px; /* Positioned 881px from the left side */
+    z-index: 103; /* Ensures the paragraph appears above other elements */
+    position: relative; /* Positioned relative to its parent container */
+    margin-bottom: 40px; /* Adds space below the paragraph */
+    max-width: 150px; /* Limits the maximum width of the paragraph */
+    text-align: justify; /* Justifies the text to the left and right margins */
+}
+
+.rect7 {
+    width: 307px; /* Set the width of the rectangle */
+    height: 200px; /* Set the height of the rectangle */
+    position: relative; /* Positioned relative to its parent container */
+    background-color: #fff; /* White background color */
+    z-index: 103; /* Ensures that the rectangle appears above other elements */
+    left: 750px; /* Positioned 750px from the left side */
+    border-radius: 15px; /* Rounded corners with a radius of 15px */
+    margin-bottom: -210px; /* Moves the element upwards by 210px */
+}
+
+.pokemon-image5 {
+    width: 220px; /* Set the width of the Pokémon image */
+    height: auto; /* Adjust the height automatically to maintain aspect ratio */
+    position: relative; /* Positioned relative to its parent container */
+    top: -10px; /* Moves the image upwards by 10px */
+    left: 725px; /* Positioned 725px from the left side */
+    margin-bottom: -170px; /* Moves the image upwards by 170px */
+    z-index: 103; /* Ensures that the image appears above other elements */
+}
+
+.text6 h1 {
+    font-size: 20px; /* Sets the font size of the main heading */
+    color: #F77F00; /* Sets the font color to a specific orange */
+    left: 880px; /* Positioned 880px from the left side */
+    z-index: 103; /* Ensures the heading appears above other elements */
+    position: relative; /* Positioned relative to its parent container */
+    margin-bottom: -40px; /* Moves the heading upwards by 40px */
+}
+
+.text6 h2 {
+    font-size: 12px; /* Sets the font size of the subheading */
+    color: #F77F00; /* Sets the font color to a specific orange */
+    left: 990px; /* Positioned 990px from the left side */
+    z-index: 103; /* Ensures the subheading appears above other elements */
+    position: relative; /* Positioned relative to its parent container */
+    margin-bottom: 35px; /* Adds space below the subheading */
+}
+
+.text6 p {
+    font-size: 10px; /* Sets the font size of the paragraph */
+    color: #F77F00; /* Sets the font color to a specific orange */
+    left: 920px; /* Positioned 920px from the left side */
+    z-index: 103; /* Ensures the paragraph appears above other elements */
+    position: relative; /* Positioned relative to its parent container */
+    margin-bottom: 40px; /* Adds space below the paragraph */
+    max-width: 110px; /* Limits the maximum width of the paragraph */
+    text-align: justify; /* Justifies the text to the left and right margins */
+}
+
+.rect8 {
+    width: 1440px; /* Set the width of the large rectangle */
+    height: 730px; /* Set the height of the large rectangle */
+    position: relative; /* Positioned relative to its parent container */
+    background-color: #8338EC; /* Purple background color */
+    z-index: 101; /* Positioned behind elements with a higher z-index */
+    margin-bottom: -650px; /* Moves the element upwards by 650px */
+}
+
+.pokemon-image6 {
+    width: 600px; /* Set the width of the Pokémon image */
+    height: auto; /* Adjust the height automatically to maintain aspect ratio */
+    position: relative; /* Positioned relative to its parent container */
+    top: -10px; /* Moves the image upwards by 10px */
+    left: 110px; /* Positioned 110px from the left side */
+    margin-bottom: -480px; /* Moves the image upwards by 480px */
+    z-index: 103; /* Ensures the image appears above other elements */
+}
+
+.text7 h1 {
+    font-size: 100px; /* Large font size for the main heading */
+    color: #fff; /* White font color */
+    left: 730px; /* Positioned 730px from the left side */
+    z-index: 103; /* Ensures the heading appears above other elements */
+    position: relative; /* Positioned relative to its parent container */
+    margin-bottom: 138px; /* Adds space below the heading */
+    font-style: italic; /* Italicizes the heading text */
+    margin-bottom: -140px; /* Moves the heading upwards by 140px */
+    text-shadow: #fff 0px 0px 3px; /* Adds a white shadow effect to the text */
+}
+
+.text7 h2 {
+    font-size: 30px; /* Sets the font size of the subheading */
+    color: #fff; /* White font color */
+    left: 740px; /* Positioned 740px from the left side */
+    z-index: 103; /* Ensures the subheading appears above other elements */
+    position: relative; /* Positioned relative to its parent container */
+    margin-bottom: -35px; /* Moves the subheading upwards by 35px */
+    text-shadow: #fff 0px 0px 3px; /* Adds a white shadow effect to the text */
+}
+.text7 h3{
+    font-size: 30px; /* Sets font size for the main heading */
+    color: #fff; /* Sets text color to white */
+    left: 1250px; /* Positions the heading from the left */
+    z-index: 103; /* Ensures it appears above other elements */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: 100px; /* Adds space below the heading */
+    text-shadow: #fff 0px 0px 3px; /* Adds white shadow effect to the text */
+}
+
+.text7 p{
+    font-size: 15px; /* Sets font size for paragraph */
+    color: #fff; /* Sets text color to white */
+    left: 750px; /* Positions the paragraph from the left */
+    z-index: 101; /* Ensures it appears below heading */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: 40px; /* Adds space below the paragraph */
+    max-width: 600px; /* Limits the width of the paragraph */
+    text-align: justify; /* Justifies the text for alignment */
+}
+
+.pokemon-container3 {
+    position: relative; /* Allows the container to be positioned */
+    width: auto; /* Adjusts container width automatically */
+    height: auto; /* Adjusts container height automatically */
+    z-index: 104; /* Ensures it appears above other elements */
+    margin-bottom: -160px; /* Adjusts bottom margin */
+    display: block; /* Ensures container respects children's positioning */
+    overflow: visible; /* Allows children to render outside the container bounds */
+    transition: transform 0.3s ease; /* Enables smooth transition when transformed */
+}
+
+.pokemon-container3:hover {
+    transform: translateY(-10px); /* Moves container up by 10px on hover */
+}
+
+.rect9 {
+    width: 307px; /* Sets width of the rectangle */
+    height: 200px; /* Sets height of the rectangle */
+    position: relative; /* Allows positioning relative to its normal position */
+    background-color: #fff; /* Sets background color to white */
+    z-index: 103; /* Ensures it appears above other elements */
+    left: 750px; /* Positions the rectangle from the left */
+    border-radius: 15px; /* Rounds the corners of the rectangle */
+    margin-bottom: -180px; /* Adjusts bottom margin */
+}
+
+.pokemon-image7 {
+    width: 150px; /* Sets width of the image */
+    height: auto; /* Adjusts height automatically */
+    position: relative; /* Allows positioning relative to its normal position */
+    top: -10px; /* Moves the image up by 10px */
+    left: 750px; /* Positions the image from the left */
+    margin-bottom: -150px; /* Adjusts bottom margin */
+    z-index: 103; /* Ensures it appears above other elements */
+}
+
+.text8 h1 {
+    font-size: 20px; /* Sets font size for main heading */
+    color: #8338EC; /* Sets text color to purple */
+    left: 900px; /* Positions the heading from the left */
+    z-index: 103; /* Ensures it appears above other elements */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: -40px; /* Adjusts bottom margin */
+}
+
+.text8 h2 {
+    font-size: 12px; /* Sets font size for subtitle */
+    color: #8338EC; /* Sets text color to purple */
+    left: 990px; /* Positions the subtitle from the left */
+    z-index: 103; /* Ensures it appears above other elements */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: 35px; /* Adds space below the subtitle */
+}
+
+.text8 p {
+    font-size: 10px; /* Sets font size for paragraph */
+    color: #8338EC; /* Sets text color to purple */
+    left: 900px; /* Positions the paragraph from the left */
+    z-index: 103; /* Ensures it appears above other elements */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: 40px; /* Adds space below the paragraph */
+    max-width: 140px; /* Limits the width of the paragraph */
+    text-align: justify; /* Justifies the text for alignment */
+}
+
+.pokemon-container4 {
+    position: relative; /* Allows the container to be positioned */
+    width: auto; /* Adjusts container width automatically */
+    height: auto; /* Adjusts container height automatically */
+    z-index: 104; /* Ensures it appears above other elements */
+    left: 320px; /* Positions the container from the left */
+    display: block; /* Ensures container respects children's positioning */
+    overflow: visible; /* Allows children to render outside the container bounds */
+    transition: transform 0.3s ease; /* Enables smooth transition when transformed */
+    margin-bottom: 100px; /* Adds space below the container */
+}
+
+.pokemon-container4:hover {
+    transform: translateY(-10px); /* Moves container up by 10px on hover */
+}
+
+.rect10 {
+    width: 307px; /* Sets width of the rectangle */
+    height: 200px; /* Sets height of the rectangle */
+    position: relative; /* Allows positioning relative to its normal position */
+    background-color: #fff; /* Sets background color to white */
+    z-index: 103; /* Ensures it appears above other elements */
+    left: 750px; /* Positions the rectangle from the left */
+    border-radius: 15px; /* Rounds the corners of the rectangle */
+    margin-bottom: -180px; /* Adjusts bottom margin */
+}
+
+.pokemon-image8 {
+    width: 160px; /* Sets width of the image */
+    height: auto; /* Adjusts height automatically */
+    position: relative; /* Allows positioning relative to its normal position */
+    top: -10px; /* Moves the image up by 10px */
+    left: 755px; /* Positions the image from the left */
+    margin-bottom: -140px; /* Adjusts bottom margin */
+    z-index: 103; /* Ensures it appears above other elements */
+}
+
+.text9 h1 {
+    font-size: 20px; /* Sets font size for main heading */
+    color: #8338EC; /* Sets text color to purple */
+    left: 920px; /* Positions the heading from the left */
+    z-index: 103; /* Ensures it appears above other elements */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: -40px; /* Adjusts bottom margin */
+}
+
+.text9 h2 {
+    font-size: 12px; /* Sets font size for subtitle */
+    color: #8338EC; /* Sets text color to purple */
+    left: 990px; /* Positions the subtitle from the left */
+    z-index: 103; /* Ensures it appears above other elements */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: 35px; /* Adds space below the subtitle */
+}
+
+.text9 p {
+    font-size: 10px; /* Sets font size for paragraph */
+    color: #8338EC; /* Sets text color to purple */
+    left: 920px; /* Positions the paragraph from the left */
+    z-index: 103; /* Ensures it appears above other elements */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: 40px; /* Adds space below the paragraph */
+    max-width: 110px; /* Limits the width of the paragraph */
+    text-align: justify; /* Justifies the text for alignment */
+}
+
+.rect11{
+    width: 1440px; /* Sets width of the rectangle */
+    height: 800px; /* Sets height of the rectangle */
+    position: relative; /* Allows positioning relative to its normal position */
+    background-color: #F77F00; /* Sets background color to orange */
+    z-index: 101; /* Ensures it appears below other elements */
+    margin-bottom: -670px; /* Adjusts bottom margin */
+}
+
+.pokemon-image9 {
+    width: 450px; /* Sets width of the image */
+    height: auto; /* Adjusts height automatically */
+    position: relative; /* Allows positioning relative to its normal position */
+    top: -10px; /* Moves the image up by 10px */
+    left: 110px; /* Positions the image from the left */
+    margin-bottom: -480px; /* Adjusts bottom margin */
+    z-index: 103; /* Ensures it appears above other elements */
+}
+
+.text10 h1{
+    font-size: 100px; /* Sets font size for main heading */
+    color: #fff; /* Sets text color to white */
+    left: 730px; /* Positions the heading from the left */
+    z-index: 103; /* Ensures it appears above other elements */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: 138px; /* Adds space below the heading */
+    font-style: italic; /* Applies italic style to the text */
+    margin-bottom: -140px; /* Adjusts bottom margin */
+    text-shadow: #fff 0px 0px 3px; /* Adds white shadow effect to the text */
+}
+
+.text10 h2{
+    font-size: 30px; /* Sets font size for subtitle */
+    color: #fff; /* Sets text color to white */
+    left: 740px; /* Positions the subtitle from the left */
+    z-index: 101; /* Ensures it appears below main heading */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: -35px; /* Adjusts bottom margin */
+    text-shadow: #fff 0px 0px 3px; /* Adds white shadow effect to the text */
+}
+
+.text10 h3{
+    font-size: 30px; /* Sets font size for subtitle */
+    color: #fff; /* Sets text color to white */
+    left: 1250px; /* Positions the subtitle from the left */
+    z-index: 101; /* Ensures it appears below main heading */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: 100px; /* Adds space below the subtitle */
+    text-shadow: #fff 0px 0px 3px; /* Adds white shadow effect to the text */
+}
+
+.text10 p{
+    font-size: 15px; /* Sets font size for paragraph */
+    color: #fff; /* Sets text color to white */
+    left: 750px; /* Positions the paragraph from the left */
+    z-index: 101; /* Ensures it appears below other elements */
+    position: relative; /* Allows positioning relative to its normal position */
+    margin-bottom: 40px; /* Adds space below the paragraph */
+    max-width: 600px; /* Limits the width of the paragraph */
+    text-align: justify; /* Justifies the text for alignment */
+}
+.pokemon-container5 {
+    position: relative; /* Ensures the container respects its child elements' positioning */
+    width: auto; /* No fixed width, adjusts based on content */
+    height: auto; /* No fixed height, adjusts based on content */
+    z-index: 104; /* Ensures the container is on top of elements with lower z-index values */
+    margin-bottom: -160px; /* Negative margin to pull the container closer to other elements */
+    display: block; /* Ensures the container respects the children's block-level positioning */
+    overflow: visible; /* Allows child elements to extend outside the container if needed */
+    transition: transform 0.3s ease; /* Enables smooth transition when the container is hovered */
+    left: 300px; /* Positions the container 300px from the left edge */
+    margin-bottom: -710px; /* Adjusts the bottom margin for better layout control */
+}
+
+.pokemon-container5:hover {
+    transform: translateY(-10px); /* Moves the container up by 10px when hovered */
+}
+
+.rect12 {
+    width: 307px; /* Defines the width of the rectangle */
+    height: 200px; /* Defines the height of the rectangle */
+    position: relative; /* Allows positioning within the container */
+    background-color: #fff; /* White background for the rectangle */
+    z-index: 103; /* Ensures the rectangle stays on top of lower z-index elements */
+    left: 750px; /* Positions the rectangle 750px from the left */
+    border-radius: 15px; /* Adds rounded corners to the rectangle */
+    margin-bottom: -190px; /* Negative margin to bring the rectangle closer to other elements */
+}
+
+.pokemon-image10 {
+    width: 230px; /* Sets the width of the image */
+    height: auto; /* Height adjusts automatically based on the aspect ratio */
+    position: relative; /* Allows positioning within the container */
+    top: -10px; /* Adjusts the vertical position of the image */
+    left: 710px; /* Adjusts the horizontal position of the image */
+    margin-bottom: -150px; /* Negative margin to control spacing between elements */
+    z-index: 103; /* Keeps the image on top of elements with a lower z-index */
+}
+
+.text11 h1 {
+    font-size: 20px; /* Sets the font size of the heading */
+    color: #F77F00; /* Applies an orange color to the text */
+    left: 900px; /* Positions the heading 900px from the left edge */
+    z-index: 103; /* Ensures the heading is above lower z-index elements */
+    position: relative; /* Allows positioning within the container */
+    margin-bottom: -40px; /* Negative margin to pull the heading closer to other elements */
+}
+
+.text11 h2 {
+    font-size: 12px; /* Sets the font size of the subheading */
+    color: #F77F00; /* Applies the same orange color to the subheading */
+    left: 990px; /* Positions the subheading 990px from the left edge */
+    z-index: 103; /* Ensures the subheading stays above lower z-index elements */
+    position: relative; /* Allows positioning within the container */
+    margin-bottom: 35px; /* Adds spacing below the subheading */
+}
+
+.text11 p {
+    font-size: 10px; /* Sets the font size of the paragraph */
+    color: #F77F00; /* Applies the same orange color to the paragraph */
+    left: 900px; /* Positions the paragraph 900px from the left edge */
+    z-index: 103; /* Keeps the paragraph on top of lower z-index elements */
+    position: relative; /* Allows positioning within the container */
+    margin-bottom: 40px; /* Adds spacing below the paragraph */
+    max-width: 140px; /* Limits the width of the paragraph for better text layout */
+    text-align: justify; /* Justifies the text for even spacing */
+}
+
+.rect33 {
+    width: 1440px; /* Sets the width of the gradient background */
+    height: 200px; /* Defines the height of the gradient background */
+    background-image: linear-gradient(to right, #fff, #F72585, #7209B7); /* Creates a gradient background from white to purple */
+    border-radius: 20px 20px 0 0; /* Rounds the top corners */
+    position: relative; /* Allows positioning within the layout */
+    z-index: 103; /* Ensures the background stays on top of other elements */
+    top: 800px; /* Positions the background 800px from the top */
+}
+
+.pokemon-image14 {
+    width: 50px; /* Sets the size of the Pokémon image */
+    height: 50px; /* Ensures the image is square */
+    border-radius: 50%; /* Makes the image circular */
+    position: relative; /* Allows positioning within the container */
+    z-index: 104; /* Keeps the image above lower z-index elements */
+    top: 665px; /* Positions the image vertically */
+    left: 1070px; /* Positions the image horizontally */
+    transition: transform 0.3s ease; /* Enables smooth transition on hover */
+}
+
+.pokemon-image14:hover {
+    transform: translateY(-10px); /* Moves the image up by 10px when hovered */
+}
+
+.pokemon-image15 {
+    width: 50px; /* Defines the width of the Pokémon image */
+    height: 50px; /* Defines the height of the Pokémon image */
+    border-radius: 50%; /* Makes the image circular */
+    position: relative; /* Allows positioning within the container */
+    z-index: 104; /* Keeps the image above other elements */
+    top: 665px; /* Positions the image vertically */
+    left: 1080px; /* Positions the image horizontally */
+    transition: transform 0.3s ease; /* Enables smooth hover effect */
+}
+
+.pokemon-image15:hover {
+    transform: translateY(-10px); /* Moves the image up by 10px when hovered */
+}
+
+.pokemon-image16 {
+    width: 50px; /* Defines the width of the Pokémon image */
+    height: 50px; /* Defines the height of the Pokémon image */
+    border-radius: 50%; /* Makes the image circular */
+    position: relative; /* Allows positioning within the container */
+    z-index: 104; /* Keeps the image above other elements */
+    top: 665px; /* Positions the image vertically */
+    left: 1090px; /* Positions the image horizontally */
+    transition: transform 0.3s ease; /* Enables smooth hover effect */
+}
+
+.pokemon-image16:hover {
+    transform: translateY(-10px); /* Moves the image up by 10px on hover */
+}
+
+.pokemon-image17 {
+    width: 50px; /* Defines the width of the Pokémon image */
+    height: 50px; /* Defines the height of the Pokémon image */
+    border-radius: 50%; /* Makes the image circular */
+    position: relative; /* Allows positioning within the container */
+    z-index: 104; /* Keeps the image above other elements */
+    top: 665px; /* Positions the image vertically */
+    left: 1100px; /* Positions the image horizontally */
+    transition: transform 0.3s ease; /* Enables smooth hover effect */
+}
+
+.pokemon-image17:hover {
+    transform: translateY(-10px); /* Moves the image up by 10px on hover */
+}
+
+.text14 p {
+    font-size: 15px; /* Sets the font size of the paragraph */
+    color: #fff; /* White text color */
+    position: relative; /* Allows positioning within the container */
+    z-index: 103; /* Keeps the text on top of other elements */
+    top: 701.5px; /* Positions the text below the Pokémon images */
+    background-color: #ffffff29; /* Semi-transparent white background for the text */
+    padding: 12.7px 543.5px 12.7px 543.5px; /* Adds padding for better spacing */
+}
+
+.text15 a {
+    font-size: 15px; /* Sets the font size for the link */
+    color: #0000006b; /* Dark grey link color */
+    position: relative; /* Allows positioning within the container */
+    z-index: 103; /* Ensures the link is above other elements */
+    top: 540px; /* Positions the link vertically */
+    left: 60px; /* Positions the link horizontally */
+    text-decoration: none; /* Removes the underline from the link */
+}
+
+.text15 a:hover {
+    color: #F72585; /* Changes the link color to pink on hover */
+}
+
+.text16 a {
+    font-size: 15px; /* Sets the font size for the link */
+    color: #0000006b; /* Dark grey color for the link */
+    position: relative; /* Allows positioning within the container */
+    z-index: 103; /* Keeps the link on top of other elements */
+    top: 540px; /* Adjusts vertical positioning */
+    left: 60px; /* Adjusts horizontal positioning */
+    text-decoration: none; /* Removes underline for cleaner look */
+}
+
+.text16 a:hover {
+    color: #F72585; /* Changes color to pink when the link is hovered */
+}
+
+.text17 a {
+    font-size: 15px; /* Sets the font size for the link */
+    color: #0000006b; /* Dark grey link color */
+    position: relative; /* Positions the link within the container */
+    z-index: 103; /* Ensures the link is above other elements */
+    top: 540px; /* Vertical positioning of the link */
+    left: 60px; /* Horizontal positioning of the link */
+    text-decoration: none; /* Ensures no underline is shown */
+}
+
+.text17 a:hover {
+    color: #F72585; /* Changes the link color to pink on hover */
+}
+
+.text18 a {
+    font-size: 15px; /* Defines font size for the link */
+    color: #0000006b; /* Dark grey color for the link */
+    position: relative; /* Allows positioning within the container */
+    z-index: 103; /* Ensures the link stays on top */
+    top: 540px; /* Adjusts vertical positioning */
+    left: 60px; /* Adjusts horizontal positioning */
+    text-decoration: none; /* Removes underline for cleaner appearance */
+}
+
+.text18 a:hover {
+    color: #F72585; /* Changes the color to pink when hovered */
+}
+
+.text19 a {
+    font-size: 15px; /* Sets the font size for the link */
+    color: #0000006b; /* Dark grey link color */
+    position: relative; /* Ensures correct positioning */
+    z-index: 103; /* Ensures the link stays above lower z-index elements */
+    top: 540px; /* Adjusts vertical position */
+    left: 60px; /* Adjusts horizontal position */
+    text-decoration: none; /* Removes the default underline from the link */
+}
+
+.text19 a:hover {
+    color: #F72585; /* Changes the link color to pink when hovered */
+}

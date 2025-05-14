@@ -1,0 +1,1505 @@
+/* ========================================================================= */
+/* Base Styles */
+/* ========================================================================= */
+/* '*' - This applies style to all elements. */
+* {
+    margin: 0; /* Removes default margins */
+    padding: 0; /* Removes default padding */
+    box-sizing: border-box; /* Ensures padding and borders are included in element's width/height */
+}
+/* '::-webkit-scrollbar' - This targets the scrollbar in WebKit brwser. */
+body::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar for a cleaner look */
+}
+
+/* 'body' - is the main container for all the content on the page.  */
+body {
+    font-family: "Montserrat", sans-serif; /* Sets Montserrat as the default font */
+    background-color: #12131d; /* Dark background color for the entire page */
+    overflow-x: hidden; /* This hides the horizontal scrollbar. */
+}
+
+/* ========================================================================= */
+/* Navigation */
+/* ========================================================================= */
+/* Navigation bar - This styles the bar and put it on the top with a shadow. */
+nav {
+    background-color: #161723; /* Slightly lighter dark shade for nav background */
+    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.055); /* Subtle shadow for depth */
+    position: fixed; /* This changed from sticky to fixed */
+    top: 0; /* Aligns nav to the top edge */
+    left: 0; /* Aligns nav to the left edge */
+    width: 100%; /* Spans full width of viewport */
+    z-index: 1000; /* Ensures nav stays above most content */
+    padding: 23px 0; /* Vertical padding for nav height */
+}
+/* 'nav ul' - This styles the unordered list for navigation items. */
+nav ul {
+    list-style: none; /* Removes default bullet points */
+    display: flex; /* Arranges items horizontally */
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Aligns items vertically */
+}
+/* 'nav ul li' - This styles the individual list items in the navigation adding spacings. */
+nav ul li {
+    margin: 0 1.5rem; /* Horizontal spacing between nav items */
+}
+/* 'nav ul li a' - Thiss styles thenavigation link with font, color and hover transitions. */
+nav ul li a {
+    text-decoration: none; /* Removes underline from links */
+    color: #fff; /* White text color for links */
+    font-family: 'Helvetica', sans-serif; /* Helvetica font for nav links */
+    font-weight: 500; /* Medium font weight for clarity */
+    font-size: 1rem; /* Font size for nav links */
+    padding: 0.5rem 1rem; /* Padding for clickable area */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and position */
+}
+/* This changes position when hovering the mouse on it */
+nav ul li a:hover {
+    color: #F72585; /* Bright pink color on hover */
+    transform: translateY(-2px); /* Slight upward movement on hover */
+}
+/* This changes color when clicking it. */
+nav ul li a:active {
+    color: #D100D1; /* Purple color when clicked */
+}
+
+/* Navigation Responsive - This adjust the navigation for smaller screens like phones.*/
+@media screen and (max-width: 768px) {
+    nav ul { /* This stacks items vertically. */
+        flex-direction: column; /* Stacks nav items vertically */
+        padding: 1rem 0; /* Vertical padding for mobile nav */
+    }
+
+    nav ul li { /* This reduces the margin for vertical navigation items. */
+        margin: 0.5rem 0; /* Reduced vertical spacing for mobile */
+    }
+}
+
+/* ========================================================================= */
+/* Fixed Elements */
+/* ========================================================================= */
+.pokemon-image1 { /* Styles the logo in the header. */
+    width: 60px; /* Sets logo width */
+    position: fixed; /* Fixes logo to viewport */
+    top: 4px; /* Positions from top */
+    left: 20px; /* Positions from left */
+    z-index: 1001; /* Ensures logo is above nav */
+}
+
+.title { 
+    font-size: 15px; /* Small font size for title */
+    color: #fff; /* White text color */
+    position: fixed; /* Fixes title to viewport */
+    top: 15px; /* Positions from top */
+    left: 80px; /* Positions from left */
+    z-index: 1001; /* Ensures title is above nav */
+}
+
+.rect1, .rect2, .rect3 {
+    width: 100px; /* Default width for rectangles */
+    height: 100px; /* Default height for rectangles */
+    background-color: #fff; /* White background */
+    margin: 0; /* Removes default margins */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+/* Change all rectangles when hovering on the parent */
+.group:hover .rect1,
+.group:hover .rect2,
+.group:hover .rect3 {
+    background-color: #F72585; /* Pink color on hover */
+}
+
+.rect1 {
+    width: 30px; /* Custom width */
+    height: 5px; /* Custom height */
+    background-color: #fff; /* White background */
+    border-radius: 90px; /* Fully rounded edges */
+    position: fixed; /* Fixes to viewport */
+    top: 26px; /* Positions from top */
+    left: 1370px; /* Positions from left */
+    z-index: 1001; /* Above nav */
+}
+
+.rect2 {
+    width: 25px; /* Custom width */
+    height: 5px; /* Custom height */
+    background-color: #fff; /* White background */
+    border-radius: 90px; /* Fully rounded edges */
+    position: fixed; /* Fixes to viewport */
+    top: 36px; /* Positions from top */
+    left: 1375px; /* Positions from left */
+    z-index: 1001; /* Above nav */
+}
+
+.rect3 {
+    width: 15px; /* Custom width */
+    height: 5px; /* Custom height */
+    background-color: #fff; /* White background */
+    border-radius: 90px; /* Fully rounded edges */
+    position: fixed; /* Fixes to viewport */
+    top: 46px; /* Positions from top */
+    left: 1385px; /* Positions from left */
+    z-index: 1001; /* Above nav */
+}
+
+/* ========================================================================= */
+/* Content Container */
+/* ========================================================================= */
+.content-container {
+    position: relative; /* Allows absolute positioning of children */
+    min-height: auto; /* Adapts height to content */
+    width: 100%; /* Full width */
+    padding-top: 70px; /* Prevents content overlap with fixed nav */
+}
+
+/* ========================================================================= */
+/* Hero Section */
+/* ========================================================================= */
+.pokemon-image2 {
+    width: 600px; /* Large image width */
+    margin-left: 50px; /* Left offset */
+    margin-top: 60px; /* Top offset */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background elements */
+}
+
+.circle1 {
+    width: 50px; /* Circle width */
+    height: 50px; /* Circle height */
+    background-color: #fff; /* White background */
+    border-radius: 50%; /* Circular shape */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background */
+    margin: 90px 0 0 120px; /* Positioning offsets */
+    box-shadow: 0 0 20px 5px rgb(178, 70, 203); /* Purple glow effect */
+}
+
+.circle2 {
+    width: 50px; /* Circle width */
+    height: 50px; /* Circle height */
+    background-color: #fff; /* White background */
+    border-radius: 50%; /* Circular shape */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background */
+    margin: 450px 0 0 550px; /* Different positioning */
+    box-shadow: 0 0 20px 5px rgb(178, 70, 203); /* Purple glow effect */
+}
+
+.circle3 {
+    width: 120px; /* Larger width */
+    height: 120px; /* Larger height */
+    background-color: #fff; /* White background */
+    border-radius: 50%; /* Circular shape */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background */
+    margin: 160px 0 0 600px; /* Different positioning */
+    box-shadow: 0 0 30px 10px rgb(178, 70, 203); /* Larger glow effect */
+}
+
+.circle4 {
+    width: 120px; /* Larger width */
+    height: 120px; /* Larger height */
+    background-color: #fff; /* White background */
+    border-radius: 50%; /* Circular shape */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background */
+    margin: 360px 0 0 30px; /* Different positioning */
+    box-shadow: 0 0 30px 10px rgb(178, 70, 203); /* Larger glow effect */
+}
+
+.circle5 {
+    width: 500px; /* Wide width */
+    height: 160px; /* Shorter height for ellipse */
+    background-color: #0B0B11; /* Dark background */
+    border-radius: 50%; /* Elliptical shape */
+    position: absolute; /* Positions relative to parent */
+    margin: 520px 0 0 100px; /* Positioning */
+    box-shadow: 0 0 10px 10px rgb(11, 11, 17); /* Darker shadow */
+}
+
+.text h2 {
+    font-size: 60px; /* Large font size for heading */
+    color: #fff; /* White text */
+    margin-left: 800px; /* Left offset */
+    margin-top: 150px; /* Top offset */
+    z-index: 101; /* Above background */
+    position: absolute; /* Positions relative to parent */
+    max-width: 600px; /* Limits text width */
+}
+
+.text p {
+    font-size: 15px; /* Small font size for paragraph */
+    color: #fff; /* White text */
+    margin-left: 800px; /* Left offset */
+    margin-top: 380px; /* Top offset */
+    z-index: 101; /* Above background */
+    position: absolute; /* Positions relative to parent */
+    max-width: 550px; /* Limits text width */
+}
+
+.button1 {
+    padding: 15px 40px; /* Padding for button size */
+    background-color: #F72585; /* Pink background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 90px; /* Rounded edges */
+    cursor: pointer; /* Hand cursor on hover */
+    font-size: 18px; /* Medium font size for button */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    margin-left: 800px; /* Left offset */
+    margin-top: 455px; /* Top offset */
+}
+
+.button1:hover {
+    background-color: #D100D1; /* Purple on hover */
+}
+
+.button1:active {
+    background-color: #F72585; /* Reverts to pink when clicked */
+}
+
+.rect5 {
+    width: 1440px; /* Full width */
+    height: 730px; /* Tall height */
+    background-color: #fff; /* White background */
+    position: absolute; /* Positions relative to parent */
+    z-index: -100; /* Behind all content */
+    margin: 230px 0 0 0; /* Top offset */
+}
+
+/* ========================================================================= */
+/* Game Sections */
+/* ========================================================================= */
+.pokemon-section {
+    position: absolute; /* Positions relative to parent */
+    z-index: 100; /* Above background */
+    margin: 390px 0 0 30px; /* Positioning */
+    transition: transform 0.3s ease; /* Smooth movement on hover */
+}
+
+.pokemon-section:hover {
+    transform: translateY(-10px); /* Moves up on hover */
+}
+
+.pokemon-section1 {
+    position: absolute; /* Positions relative to parent */
+    z-index: 99; /* Slightly lower than first section */
+    margin: 390px 0 0 30px; /* Positioning */
+    transition: transform 0.3s ease; /* Smooth movement on hover */
+}
+
+.pokemon-section1:hover {
+    transform: translateY(-10px); /* Moves up on hover */
+}
+
+.pokemon-section2 {
+    position: relative; /* Relative to its normal position */
+    z-index: 99; /* Same as second section */
+    margin: 390px 0 0 30px; /* Positioning */
+    transition: transform 0.3s ease; /* Smooth movement on hover */
+}
+
+.pokemon-section2:hover {
+    transform: translateY(-10px); /* Moves up on hover */
+}
+
+.pokemon-image3 {
+    width: 400px; /* Image width */
+    margin-left: 20px; /* Left offset */
+    margin-top: 20px; /* Top offset */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background */
+    border-radius: 5px; /* Slightly rounded corners */
+}
+
+.pokemon-image4 {
+    width: 400px; /* Image width */
+    height: 225px; /* Fixed height */
+    margin-left: 490px; /* Left offset */
+    margin-top: -480px; /* Negative top offset for overlap */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background */
+    border-radius: 5px; /* Slightly rounded corners */
+}
+
+.pokemon-image6 {
+    width: 400px; /* Image width */
+    height: 225px; /* Fixed height */
+    margin-left: 960px; /* Left offset */
+    margin-top: -480px; /* Negative top offset */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background */
+    border-radius: 5px; /* Slightly rounded corners */
+}
+
+.rect6 {
+    width: 440px; /* Section width */
+    height: 500px; /* Section height */
+    background-color: #ffffff; /* White background */
+    box-shadow: #0b0b111f 0px 0px 10px 1px; /* Subtle shadow */
+    border-radius: 10px; /* Rounded corners */
+    position: relative; /* Relative to normal position */
+}
+
+.rect6:hover {
+    box-shadow: #f725844b 0px 0px 20px 1px; /* Pink glow on hover */
+}
+
+.rect8 {
+    width: 440px; /* Section width */
+    height: 500px; /* Section height */
+    background-color: #ffffff; /* White background */
+    box-shadow: #0b0b111f 0px 0px 10px 1px; /* Subtle shadow */
+    border-radius: 10px; /* Rounded corners */
+    position: relative; /* Relative to normal position */
+    margin-left: 470px; /* Left offset */
+}
+
+.rect8:hover {
+    box-shadow: #f725844b 0px 0px 20px 1px; /* Pink glow on hover */
+}
+
+.rect10 {
+    width: 440px; /* Section width */
+    height: 500px; /* Section height */
+    background-color: #ffffff; /* White background */
+    box-shadow: #0b0b111f 0px 0px 10px 1px; /* Subtle shadow */
+    border-radius: 10px; /* Rounded corners */
+    position: relative; /* Relative to normal position */
+    margin-left: 940px; /* Left offset */
+    margin-top: 0; /* No top offset */
+}
+
+.rect10:hover {
+    box-shadow: #f725844b 0px 0px 20px 1px; /* Pink glow on hover */
+}
+
+.text1 h2 {
+    font-size: 25px; /* Medium font size for heading */
+    color: #12131d; /* Dark text color */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 20px; /* Left offset */
+    top: 270px; /* Top offset */
+}
+
+.text4 h2 {
+    font-size: 25px; /* Medium font size for heading */
+    color: #12131d; /* Dark text color */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    margin-left: 490px; /* Left offset */
+    top: 270px; /* Top offset */
+}
+
+.text7 h2 {
+    font-size: 25px; /* Medium font size for heading */
+    color: #12131d; /* Dark text color */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin-left: 960px; /* Left offset */
+    margin-top: -140px; /* Negative top offset */
+}
+
+.text1 p {
+    font-size: 16px; /* Small font size for text */
+    color: #FFBD00; /* Yellow rating color */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 20px; /* Left offset */
+    top: 370px; /* Top offset */
+}
+
+.text4 p {
+    font-size: 16px; /* Small font size for text */
+    color: #FFBD00; /* Yellow rating color */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    margin-left: 490px; /* Left offset */
+    top: 370px; /* Top offset */
+}
+
+.text7 p {
+    font-size: 16px; /* Small font size for text */
+    color: #FFBD00; /* Yellow rating color */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin-left: 960px; /* Left offset */
+    margin-top: 68px; /* Top offset */
+}
+
+.text2 p {
+    font-size: 16px; /* Small font size for text */
+    color: #12131d6a; /* Semi-transparent dark color */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 110px; /* Left offset */
+    top: 371px; /* Top offset */
+}
+
+.text5 p {
+    font-size: 16px; /* Small font size for text */
+    color: #12131d6a; /* Semi-transparent dark color */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    margin-left: 580px; /* Left offset */
+    top: 371px; /* Top offset */
+}
+
+.text8 p {
+    font-size: 16px; /* Small font size for text */
+    color: #12131d6a; /* Semi-transparent dark color */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin-left: 1050px; /* Left offset */
+    margin-top: -20px; /* Negative top offset */
+}
+
+.text3 p {
+    font-size: 16px; /* Small font size for text */
+    color: #12131d; /* Dark text color */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    max-width: 400px; /* Limits text width */
+    left: 20px; /* Left offset */
+    top: 310px; /* Top offset */
+}
+
+.text6 p {
+    font-size: 16px; /* Small font size for text */
+    color: #12131d; /* Dark text color */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    max-width: 400px; /* Limits text width */
+    margin-left: 490px; /* Left offset */
+    top: 310px; /* Top offset */
+}
+
+.text9 p {
+    font-size: 16px; /* Small font size for text */
+    color: #12131d; /* Dark text color */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    max-width: 400px; /* Limits text width */
+    margin-left: 960px; /* Left offset */
+    margin-top: -80px; /* Negative top offset */
+}
+
+.rect7 {
+    width: 400px; /* Line width */
+    height: 1px; /* Line height */
+    background-color: #12131da7; /* Semi-transparent dark line */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    margin: 410px 0 0 20px; /* Positioning */
+}
+
+.rect9 {
+    width: 400px; /* Line width */
+    height: 1px; /* Line height */
+    background-color: #12131da7; /* Semi-transparent dark line */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    margin: -90px 0 0 490px; /* Positioning */
+}
+
+.rect11 {
+    width: 400px; /* Line width */
+    height: 1px; /* Line height */
+    background-color: #12131da7; /* Semi-transparent dark line */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: -90px 0 0 960px; /* Positioning */
+}
+
+.button2 {
+    padding: 12px 20px; /* Button padding */
+    background-color: #F72585; /* Pink background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 90px; /* Rounded edges */
+    cursor: pointer; /* Hand cursor */
+    font-size: 12px; /* Small font size for button */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    position: relative; /* Relative to normal position */
+    left: 290px; /* Left offset */
+    top: -740px; /* Negative top offset */
+    z-index: 105; /* Above other elements */
+}
+
+.button2:hover {
+    background-color: #D100D1; /* Purple on hover */
+}
+
+.button2:active {
+    background-color: #F72585; /* Reverts to pink when clicked */
+}
+
+.button3 {
+    padding: 15px 25px; /* Larger padding */
+    background-color: #F72585; /* Pink background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 90px; /* Rounded edges */
+    cursor: pointer; /* Hand cursor */
+    font-size: 18px; /* Medium font size for button */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    position: absolute; /* Positions relative to parent */
+    z-index: 105; /* Above other elements */
+    left: 240px; /* Left offset */
+    top: -675px; /* Negative top offset */
+}
+
+.button3:hover {
+    background-color: #D100D1; /* Purple on hover */
+}
+
+.button3:active {
+    background-color: #F72585; /* Reverts to pink when clicked */
+}
+
+.button4 {
+    padding: 12px 20px; /* Button padding */
+    background-color: #F72585; /* Pink background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 90px; /* Rounded edges */
+    cursor: pointer; /* Hand cursor */
+    font-size: 12px; /* Small font size for button */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    position: relative; /* Relative to normal position */
+    z-index: 105; /* Above other elements */
+    left: 760px; /* Left offset */
+    top: -140px; /* Negative top offset */
+}
+
+.button4:hover {
+    background-color: #D100D1; /* Purple on hover */
+}
+
+.button4:active {
+    background-color: #F72585; /* Reverts to pink when clicked */
+}
+
+.button5 {
+    padding: 15px 25px; /* Larger padding */
+    background-color: #F72585; /* Pink background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 90px; /* Rounded edges */
+    cursor: pointer; /* Hand cursor */
+    font-size: 18px; /* Medium font size for button */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    position: absolute; /* Positions relative to parent */
+    z-index: 105; /* Above other elements */
+    left: 710px; /* Left offset */
+    top: 430px; /* Top offset */
+}
+
+.button5:hover {
+    background-color: #D100D1; /* Purple on hover */
+}
+
+.button5:active {
+    background-color: #F72585; /* Reverts to pink when clicked */
+}
+
+.button6 {
+    padding: 12px 20px; /* Button padding */
+    background-color: #F72585; /* Pink background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 90px; /* Rounded edges */
+    cursor: pointer; /* Hand cursor */
+    font-size: 12px; /* Small font size for button */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    position: relative; /* Relative to normal position */
+    left: 1234px; /* Left offset */
+    top: -1px; /* Slight negative top offset */
+    z-index: 105; /* Above other elements */
+}
+
+.button6:hover {
+    background-color: #D100D1; /* Purple on hover */
+}
+
+.button6:active {
+    background-color: #F72585; /* Reverts to pink when clicked */
+}
+
+.button7 {
+    padding: 15px 25px; /* Larger padding */
+    background-color: #F72585; /* Pink background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 90px; /* Rounded edges */
+    cursor: pointer; /* Hand cursor */
+    font-size: 18px; /* Medium font size for button */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    position: relative; /* Relative to normal position */
+    left: 1049px; /* Left offset */
+    top: 80px; /* Top offset */
+    z-index: 105; /* Above other elements */
+}
+
+.button7:hover {
+    background-color: #D100D1; /* Purple on hover */
+}
+
+.button7:active {
+    background-color: #F72585; /* Reverts to pink when clicked */
+}
+
+.button-container {
+    position: relative; /* Relative to normal position */
+    margin-top: 600px; /* Large top offset */
+}
+
+/* ========================================================================= */
+/* Featured Games and Starter Section */
+/* ========================================================================= */
+.autoShow {
+    animation: autoShowAnimation; /* Applies animation */
+    animation-timeline: view(40% auto); /* Triggers based on viewport */
+    margin-top: -530px; /* Negative top offset */
+    text-align: center; /* Centers text */
+    z-index: 103; /* Above background */
+    font-size: 60px; /* Large font size for title */
+}
+
+.autoShow1 {
+    animation: autoShowAnimation; /* Applies animation */
+    animation-timeline: view(40% auto); /* Triggers based on viewport */
+    margin-top: 660px; /* Large top offset */
+    text-align: center; /* Centers text */
+    z-index: 105; /* Above other elements */
+    font-size: 60px; /* Large font size for title */
+    color: #fff; /* White text */
+}
+
+/* Animations */
+@keyframes autoShowAnimation {
+    from {
+        opacity: 0; /* Starts invisible */
+        transform: translateY(200px) scale(0.3); /* Starts lower and smaller */
+    }
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0) scale(1); /* Normal position and size */
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0; /* Starts invisible */
+    }
+    20% {
+        opacity: 1; /* Fully visible */
+    }
+    66% {
+        opacity: 1; /* Stays visible */
+    }
+    120% {
+        opacity: 0; /* Fades out */
+    }
+}
+
+/* Fallback for browsers without animation-timeline support */
+@supports not (animation-timeline: view()) {
+    .pokemon-section3, .pokemon-section4, .pokemon-section5 {
+        opacity: 0; /* Hidden by default */
+    }
+}
+
+/* ========================================================================= */
+/* Bulbasaur Section */
+/* ========================================================================= */
+.pokemon-section3 {
+    position: relative; /* Relative to normal position */
+    z-index: 99; /* Below some elements */
+    margin: 20px 0 0 5px; /* Positioning */
+    opacity: 0; /* Starts invisible */
+    animation: fadeInOut; /* Fade animation */
+    animation-timeline: view(); /* Viewport-based trigger */
+    animation-range: entry 0% cover 70%; /* Animation range */
+}
+
+.rect12 {
+    width: 470px; /* Section width */
+    height: 539px; /* Section height */
+    border-radius: 12px; /* Rounded corners */
+    position: relative; /* Relative to normal position */
+    z-index: 101; /* Above background */
+    margin: 100px 0 102px 8px; /* Positioning */
+    background: linear-gradient(-180deg, #35FF69, #fff, #fff); /* Green-to-white gradient */
+}
+
+.pokemon-image7 {
+    width: 300px; /* Image width */
+    height: auto; /* Maintains aspect ratio */
+    position: absolute; /* Positions relative to parent */
+    left: 85px; /* Left offset */
+    top: -80px; /* Negative top offset */
+    z-index: 104; /* Above background */
+    border-radius: 5px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth movement on hover */
+}
+
+.pokemon-image7:hover {
+    transform: translateY(-10px); /* Moves up on hover */
+}
+
+.poke-name h1 {
+    font-size: 50px; /* Large font size for heading */
+    color: #0e461c; /* Dark green text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 105; /* Above other elements */
+    left: 110px; /* Left offset */
+    top: 190px; /* Top offset */
+    transition: transform 0.3s ease, text-shadow 0.3s ease; /* Smooth transform and shadow */
+}
+
+.rect13 {
+    width: 80px; /* Small width */
+    height: 25px; /* Small height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: -380px 0 0 210px; /* Positioning */
+    background: linear-gradient(-60deg, #35FF69, #fff, #35FF69); /* Green gradient */
+    border: 1px solid #30e75d; /* Light green border */
+}
+
+.poke-type p {
+    font-size: 15px; /* Small font size for text */
+    color: #18752f; /* Green text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 228px; /* Left offset */
+    top: 263px; /* Top offset */
+}
+
+.rect14 {
+    width: 355px; /* Bar width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 35px 0 0 100px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #35ff68c4, #35FF69); /* White-to-green gradient */
+    border: 1px solid #30e75d; /* Light green border */
+}
+
+.poke-stat1 p {
+    font-size: 15px; /* Small font size for text */
+    color: #0e461c; /* Dark green text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 323px; /* Top offset */
+}
+
+.poke-stat2 p {
+    font-size: 15px; /* Small font size for text */
+    color: #0e461c; /* Dark green text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 363px; /* Top offset */
+}
+
+.rect15 {
+    width: 325px; /* Slightly smaller width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 17px 0 0 130px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #35ff68ce, #35FF69, #35FF69); /* Green gradient */
+    border: 1px solid #30e75d; /* Light green border */
+}
+
+.poke-stat3 p {
+    font-size: 15px; /* Small font size for text */
+    color: #0e461c; /* Dark green text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 410px; /* Top offset */
+}
+
+.rect16 {
+    width: 310px; /* Smaller width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 20px 0 0 145px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #35ff68ce, #35FF69, #35FF69); /* Green gradient */
+    border: 1px solid #30e75d; /* Light green border */
+}
+
+.poke-stat4 p {
+    font-size: 15px; /* Small font size for text */
+    color: #0e461c; /* Dark green text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 455px; /* Top offset */
+}
+
+.rect17 {
+    width: 300px; /* Smallest width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 20px 0 0 155px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #35ff68); /* Green gradient */
+    border: 1px solid #30e75d; /* Light green border */
+}
+
+/* ========================================================================= */
+/* Charmander Section */
+/* ========================================================================= */
+.pokemon-section4 {
+    position: relative; /* Relative to normal position */
+    z-index: 99; /* Below some elements */
+    margin: -555px 0 0 485px; /* Positioning */
+    opacity: 0; /* Starts invisible */
+    animation: fadeInOut; /* Fade animation */
+    animation-timeline: view(); /* Viewport-based trigger */
+    animation-range: entry 0% cover 70%; /* Animation range */
+}
+
+.rect18 {
+    width: 470px; /* Section width */
+    height: 539px; /* Section height */
+    border-radius: 12px; /* Rounded corners */
+    position: relative; /* Relative to normal position */
+    z-index: 80; /* Lower z-index */
+    margin: 78px 0 97px 7px; /* Positioning */
+    background: linear-gradient(-180deg, #E77728, #fff, #fff); /* Orange-to-white gradient */
+}
+
+.pokemon-image8 {
+    width: 250px; /* Smaller width */
+    height: auto; /* Maintains aspect ratio */
+    position: absolute; /* Positions relative to parent */
+    left: 115px; /* Left offset */
+    top: -80px; /* Negative top offset */
+    z-index: 90; /* Lower than Bulbasaur */
+    border-radius: 5px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth movement on hover */
+}
+
+.poke-name2 h1 {
+    font-size: 50px; /* Large font size for heading */
+    color: #cc6a24; /* Orange text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 105; /* Above other elements */
+    left: 80px; /* Left offset */
+    top: 190px; /* Top offset */
+    transition: transform 0.3s ease, text-shadow 0.3s ease; /* Smooth transform and shadow */
+}
+
+.rect19 {
+    width: 80px; /* Small width */
+    height: 25px; /* Small height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: -376px 0 0 210px; /* Positioning */
+    background: linear-gradient(-60deg, #E77728, #fff, #E77728); /* Orange gradient */
+    border: 1px solid #cc6a24; /* Orange border */
+}
+
+.poke-type1 p {
+    font-size: 15px; /* Small font size for text */
+    color: #cc6a24; /* Orange text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 235px; /* Left offset */
+    top: 263px; /* Top offset */
+}
+
+.rect20 {
+    width: 355px; /* Bar width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 35px 0 0 100px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #E77728); /* Orange gradient */
+    border: 1px solid #cc6a24; /* Orange border */
+}
+
+.poke-stat5 p {
+    font-size: 15px; /* Small font size for text */
+    color: #cc6a24; /* Orange text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 323px; /* Top offset */
+}
+
+.poke-stat6 p {
+    font-size: 15px; /* Small font size for text */
+    color: #cc6a24; /* Orange text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 363px; /* Top offset */
+}
+
+.rect21 {
+    width: 325px; /* Slightly smaller width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 17px 0 0 130px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #e77828, #E77728, #E77728); /* Orange gradient */
+    border: 1px solid #cc6a24; /* Orange border */
+}
+
+.poke-stat7 p {
+    font-size: 15px; /* Small font size for text */
+    color: #cc6a24; /* Orange text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 410px; /* Top offset */
+}
+
+.rect22 {
+    width: 310px; /* Smaller width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 20px 0 0 145px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #e77828cf, #E77728, #E77728); /* Orange gradient */
+    border: 1px solid #cc6a24; /* Orange border */
+}
+
+.poke-stat8 p {
+    font-size: 15px; /* Small font size for text */
+    color: #cc6a24; /* Orange text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 455px; /* Top offset */
+}
+
+.rect23 {
+    width: 300px; /* Smallest width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 20px 0 0 155px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #E77728, #E77728); /* Orange gradient */
+    border: 1px solid #cc6a24; /* Orange border */
+}
+
+/* ========================================================================= */
+/* Squirtle Section */
+/* ========================================================================= */
+.pokemon-section5 {
+    position: relative; /* Relative to normal position */
+    z-index: 99; /* Below some elements */
+    margin: -620px 0 0 965px; /* Positioning */
+    opacity: 0; /* Starts invisible */
+    animation: fadeInOut; /* Fade animation */
+    animation-timeline: view(); /* Viewport-based trigger */
+    animation-range: entry 0% cover 70%; /* Animation range */
+}
+
+.rect25 {
+    width: 455px; /* Slightly smaller width */
+    height: 539px; /* Section height */
+    border-radius: 12px; /* Rounded corners */
+    position: relative; /* Relative to normal position */
+    z-index: 80; /* Lower z-index */
+    margin: 144px 0 97px 7px; /* Positioning */
+    background: linear-gradient(-180deg, #00FFF5, #fff, #fff); /* Cyan-to-white gradient */
+}
+
+.pokemon-image9 {
+    width: 320px; /* Image width */
+    height: auto; /* Maintains aspect ratio */
+    position: absolute; /* Positions relative to parent */
+    left: 80px; /* Left offset */
+    top: -50px; /* Negative top offset */
+    z-index: 90; /* Lower than Bulbasaur */
+    border-radius: 5px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth movement on hover */
+}
+
+.poke-name3 h1 {
+    font-size: 50px; /* Large font size for heading */
+    color: #00a6a0; /* Cyan text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 105; /* Above other elements */
+    left: 150px; /* Left offset */
+    top: 190px; /* Top offset */
+    transition: transform 0.3s ease, text-shadow 0.3s ease; /* Smooth transform and shadow */
+}
+
+.rect26 {
+    width: 80px; /* Small width */
+    height: 25px; /* Small height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: -375px 0 0 210px; /* Positioning */
+    background: linear-gradient(-60deg, #00FFF5, #fff, #00FFF5); /* Cyan gradient */
+    border: 1px solid #00a6a0; /* Cyan border */
+}
+
+.poke-type2 p {
+    font-size: 15px; /* Small font size for text */
+    color: #00a6a0; /* Cyan text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 227px; /* Left offset */
+    top: 263px; /* Top offset */
+}
+
+.rect27 {
+    width: 335px; /* Bar width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 35px 0 0 100px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #00FFF5, #00FFF5); /* Cyan gradient */
+    border: 1px solid #00a6a0; /* Cyan border */
+}
+
+.poke-stat9 p {
+    font-size: 15px; /* Small font size for text */
+    color: #00a6a0; /* Cyan text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 323px; /* Top offset */
+}
+
+.poke-stat10 p {
+    font-size: 15px; /* Small font size for text */
+    color: #00a6a0; /* Cyan text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 363px; /* Top offset */
+}
+
+.rect28 {
+    width: 305px; /* Smaller width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 17px 0 0 130px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #00fff7ca, #00FFF5, #00FFF5); /* Cyan gradient */
+    border: 1px solid #00a6a0; /* Cyan border */
+}
+
+.poke-stat11 p {
+    font-size: 15px; /* Small font size for text */
+    color: #00a6a0; /* Cyan text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 410px; /* Top offset */
+}
+
+.rect29 {
+    width: 290px; /* Smaller width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 20px 0 0 145px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #00fff7ce, #00FFF5, #00FFF5); /* Cyan gradient */
+    border: 1px solid #00a6a0; /* Cyan border */
+}
+
+.poke-stat12 p {
+    font-size: 15px; /* Small font size for text */
+    color: #00a6a0; /* Cyan text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    left: 30px; /* Left offset */
+    top: 455px; /* Top offset */
+}
+
+.rect30 {
+    width: 280px; /* Smallest width */
+    height: 25px; /* Bar height */
+    border-radius: 20px; /* Rounded edges */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above background */
+    margin: 20px 0 0 155px; /* Positioning */
+    background: linear-gradient(-85deg, #fff, #fff, #00FFF5, #00FFF5); /* Cyan gradient */
+    border: 1px solid #00a6a0; /* Cyan border */
+}
+
+/* ========================================================================= */
+/* Gallery Section */
+/* ========================================================================= */
+.rect31 {
+    width: 1440px; /* Full width */
+    height: 730px; /* Section height */
+    background-color: #E9ECEF; /* Light gray background */
+    border-radius: 0px; /* No rounded corners */
+    position: relative; /* Relative to normal position */
+    z-index: -100; /* Behind all content */
+    margin: 90px 0 0 0; /* Top offset */
+}
+
+.text10 h1 {
+    font-family: "Six Caps", sans-serif; /* Unique font for emphasis */
+    font-size: 540px; /* Extremely large font size for title */
+    color: #343A40; /* Dark gray text */
+    position: relative; /* Relative to normal position */
+    z-index: 100; /* Above background */
+    text-align: center; /* Centers text */
+    top: -830px; /* Negative top offset */
+}
+
+.slider {
+    width: 200%; /* Double width for looping */
+    max-width: 2200px; /* Caps width for visibility */
+    height: var(--height); /* Custom height variable */
+    margin: 0 auto; /* Centers slider */
+    margin-top: -920px; /* Positions below gallery title */
+    overflow: hidden; /* Hides overflow content */
+    position: relative; /* Relative to normal position */
+    z-index: 101; /* Above background */
+}
+
+.slider .list {
+    display: flex; /* Horizontal arrangement */
+    width: calc(var(--width) * var(--quantity) * 2); /* Double width for loop */
+    animation: slideAnimation 20s linear infinite; /* Continuous slide animation */
+}
+
+.slider .list .item {
+    width: var(--width); /* Custom width variable */
+    height: var(--height); /* Custom height variable */
+    flex-shrink: 0; /* Prevents shrinking */
+    filter: grayscale(1); /* Applies grayscale effect */
+    transition: filter 0.3s ease; /* Smooth filter transition */
+    margin-right: 10px; /* Spacing between items */
+}
+
+.slider .list .item img {
+    width: 100%; /* Full item width */
+    height: 100%; /* Full item height */
+    object-fit: cover; /* Scales image to cover area */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.slider:hover .list {
+    animation-play-state: paused; /* Stops animation */
+}
+
+.slider .list .item:hover {
+    filter: grayscale(0); /* Restores full color */
+}
+
+@keyframes slideAnimation {
+    0% {
+        transform: translateX(0); /* Starts at initial position */
+    }
+    100% {
+        transform: translateX(calc(var(--width) * var(--quantity) * -1)); /* Slides left */
+    }
+}
+
+/* ========================================================================= */
+/* Pokémon Legendary Section */
+/* ========================================================================= */
+.text11 h1 {
+    font-family: "DotGothic16", sans-serif; /* Retro font for theme */
+    font-size: 90px; /* Large font size for title */
+    color: #fff; /* White text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    text-align: center; /* Centers text */
+    top: 3055px; /* Vertical positioning */
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Adjusts for true centering */
+    margin: 0; /* Removes margins */
+}
+
+.text11 p {
+    font-family: "DotGothic16", sans-serif; /* Same retro font */
+    font-size: 20px; /* Medium font size for text */
+    color: #fff; /* White text */
+    position: absolute; /* Positions relative to parent */
+    z-index: 103; /* Above background */
+    text-align: center; /* Centers text */
+    top: 3180px; /* Below title */
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Adjusts for centering */
+    margin: 0; /* Removes margins */
+}
+
+.text12 h1 {
+    font-family: "DotGothic16", sans-serif; /* Retro font for theme */
+    font-size: 700px; /* Massive font size for background text */
+    color: #7209B7; /* Purple text */
+    position: absolute; /* Positions relative to parent */
+    z-index: -105; /* Behind content */
+    text-align: center; /* Centers text */
+    top: 2850px; /* Vertical positioning */
+    left: 1120px; /* Right offset */
+    rotate: 60deg; /* Rotates text for effect */
+    margin: 0; /* Removes margins */
+}
+
+.text13 h1 {
+    color: #F72585; /* Pink text */
+    font-family: "DotGothic16", sans-serif; /* Retro font for theme */
+    font-size: 700px; /* Massive font size for background text */
+    position: absolute; /* Positions relative to parent */
+    z-index: -105; /* Behind content */
+    text-align: center; /* Centers text */
+    top: 2850px; /* Vertical positioning */
+    left: -120px; /* Left offset */
+    rotate: 60deg; /* Rotates text for effect */
+    margin: 0; /* Removes margins */
+}
+
+.rect32 {
+    width: 1300px; /* Wide rectangle */
+    height: 530px; /* Section height */
+    background-color: #fff; /* White background */
+    border-radius: 25px; /* Rounded corners */
+    position: absolute; /* Positions relative to parent */
+    z-index: -100; /* Behind content */
+    top: 3250px; /* Below gallery */
+    left: 65px; /* Left offset */
+    box-shadow: #fff 0px 0px 10px 1px; /* White glow */
+    margin: 0; /* Removes margins */
+}
+
+.pokemon-image10 {
+    width: 300px; /* Image width */
+    height: auto; /* Maintains aspect ratio */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background */
+    top: 3300px; /* Vertical positioning */
+    left: 100px; /* Left offset */
+    border-radius: 5px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth movement */
+}
+
+.pokemon-image10:hover {
+    transform: translateY(-10px); /* Moves up */
+    box-shadow: #1212123b 0px 10px 10px 0.1px; /* Dark shadow */
+}
+
+.pokemon-image11 {
+    width: 295px; /* Slightly smaller width */
+    height: auto; /* Maintains aspect ratio */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background */
+    top: 3300px; /* Vertical positioning */
+    left: 410px; /* Left offset */
+    border-radius: 5px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth movement */
+}
+
+.pokemon-image11:hover {
+    transform: translateY(-10px); /* Moves up */
+    box-shadow: #1212123b 0px 10px 10px 0.1px; /* Dark shadow */
+}
+
+.pokemon-image12 {
+    width: 300px; /* Image width */
+    height: auto; /* Maintains aspect ratio */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background */
+    top: 3300px; /* Vertical positioning */
+    left: 720px; /* Left offset */
+    border-radius: 5px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth movement */
+}
+
+.pokemon-image12:hover {
+    transform: translateY(-10px); /* Moves up */
+    box-shadow: #1212123b 0px 10px 10px 0.1px; /* Dark shadow */
+}
+
+.pokemon-image13 {
+    width: 300px; /* Image width */
+    height: auto; /* Maintains aspect ratio */
+    position: absolute; /* Positions relative to parent */
+    z-index: 101; /* Above background */
+    top: 3300px; /* Vertical positioning */
+    left: 1030px; /* Left offset */
+    border-radius: 5px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth movement */
+}
+
+.pokemon-image13:hover {
+    transform: translateY(-10px); /* Moves up */
+    box-shadow: #1212123b 0px 10px 10px 0.1px; /* Dark shadow */
+}
+
+.rect33 {
+    width: 1440px; /* Full width */
+    height: 200px; /* Footer height */
+    background-image: linear-gradient(to right, #fff, #F72585, #7209B7); /* White-to-pink-to-purple gradient */
+    border-radius: 20px 20px 0 0; /* Rounded top corners */
+    position: relative; /* Relative to normal position */
+    z-index: 100; /* Above background */
+    top: 800px; /* Vertical positioning */
+}
+
+.pokemon-image14 {
+    width: 50px; /* Small icon size */
+    height: 50px; /* Square icon */
+    border-radius: 50%; /* Circular shape */
+    position: relative; /* Relative to normal position */
+    z-index: 104; /* Above footer */
+    top: 665px; /* Vertical positioning */
+    left: 1070px; /* Left offset */
+    transition: transform 0.3s ease; /* Smooth movement */
+}
+
+.pokemon-image14:hover {
+    transform: translateY(-10px); /* Moves up */
+}
+
+.pokemon-image15 {
+    width: 50px; /* Small icon size */
+    height: 50px; /* Square icon */
+    border-radius: 50%; /* Circular shape */
+    position: relative; /* Relative to normal position */
+    z-index: 104; /* Above footer */
+    top: 665px; /* Vertical positioning */
+    left: 1080px; /* Left offset */
+    transition: transform 0.3s ease; /* Smooth movement */
+}
+
+.pokemon-image15:hover {
+    transform: translateY(-10px); /* Moves up */
+}
+
+.pokemon-image16 {
+    width: 50px; /* Small icon size */
+    height: 50px; /* Square icon */
+    border-radius: 50%; /* Circular shape */
+    position: relative; /* Relative to normal position */
+    z-index: 104; /* Above footer */
+    top: 665px; /* Vertical positioning */
+    left: 1090px; /* Left offset */
+    transition: transform 0.3s ease; /* Smooth movement */
+}
+
+.pokemon-image16:hover {
+    transform: translateY(-10px); /* Moves up */
+}
+
+.pokemon-image17 {
+    width: 50px; /* Small icon size */
+    height: 50px; /* Square icon */
+    border-radius: 50%; /* Circular shape */
+    position: relative; /* Relative to normal position */
+    z-index: 104; /* Above footer */
+    top: 665px; /* Vertical positioning */
+    left: 1100px; /* Left offset */
+    transition: transform 0.3s ease; /* Smooth movement */
+}
+
+.pokemon-image17:hover {
+    transform: translateY(-10px); /* Moves up */
+}
+
+.text14 p {
+    font-size: 15px; /* Small font size for text */
+    color: #fff; /* White text */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above footer */
+    top: 701.5px; /* Vertical positioning */
+    background-color: #ffffff29; /* Semi-transparent white background */
+    padding: 12.7px 543.5px 12.7px 543.5px; /* Large padding for width */
+}
+
+.text15 a {
+    font-size: 15px; /* Small font size for text */
+    color: #0000006b; /* Semi-transparent black text */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above footer */
+    top: 540px; /* Vertical positioning */
+    left: 60px; /* Left offset */
+    text-decoration: none; /* Removes underline */
+}
+
+.text15 a:hover {
+    color: #F72585; /* Pink on hover */
+}
+
+.text16 a {
+    font-size: 15px; /* Small font size for text */
+    color: #0000006b; /* Semi-transparent black text */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above footer */
+    top: 540px; /* Vertical positioning */
+    left: 60px; /* Left offset */
+    text-decoration: none; /* Removes underline */
+}
+
+.text16 a:hover {
+    color: #F72585; /* Pink on hover */
+}
+
+.text17 a {
+    font-size: 15px; /* Small font size for text */
+    color: #0000006b; /* Semi-transparent black text */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above footer */
+    top: 540px; /* Vertical positioning */
+    left: 60px; /* Left offset */
+    text-decoration: none; /* Removes underline */
+}
+
+.text17 a:hover {
+    color: #F72585; /* Pink on hover */
+}
+
+.text18 a {
+    font-size: 15px; /* Small font size for text */
+    color: #0000006b; /* Semi-transparent black text */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above footer */
+    top: 540px; /* Vertical positioning */
+    left: 60px; /* Left offset */
+    text-decoration: none; /* Removes underline */
+}
+
+.text18 a:hover {
+    color: #F72585; /* Pink on hover */
+}
+
+.text19 a {
+    font-size: 15px; /* Small font size for text */
+    color: #0000006b; /* Semi-transparent black text */
+    position: relative; /* Relative to normal position */
+    z-index: 103; /* Above footer */
+    top: 540px; /* Vertical positioning */
+    left: 60px; /* Left offset */
+    text-decoration: none; /* Removes underline */
+}
+
+.text19 a:hover {
+    color: #F72585; /* Pink on hover */
+}
